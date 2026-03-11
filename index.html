@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Mohamed A. Radwan — Assistant Professor, Cairo University. PhD from The Ohio State University. Research: High-Speed I/O, SerDes, DFE, Power Management ICs."/>
+  <meta property="og:title" content="Mohamed A. Radwan | Assistant Professor, Cairo University"/>
+  <meta property="og:description" content="PhD, The Ohio State University · High-Speed I/O · Power Management · IC Design"/>
+  <title>Mohamed A. Radwan — Assistant Professor, Cairo University</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- ══════════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════════ -->
+<nav class="nav" role="navigation" aria-label="Main">
+  <div class="nav-wrap">
+
+    <!-- Brand -->
+    <a href="#hero" class="nav-brand" aria-label="Home">
+      <span class="brand-pip" aria-hidden="true"></span>
+      <span class="brand-text">M. A. <em>Radwan</em></span>
+    </a>
+
+    <!-- Desktop Menu -->
+    <ul class="nav-list" role="list">
+
+      <!-- About -->
+      <li class="nav-item">
+        <span class="nav-link" data-sec="about" tabindex="0" role="button" aria-haspopup="true">
+          About <span class="nav-caret" aria-hidden="true">▾</span>
+        </span>
+        <div class="dd" role="menu">
+          <a class="dd-item" href="#about" role="menuitem">
+            <div class="dd-icon-wrap">👤</div>
+            <div class="dd-text"><strong>Biography</strong><span>Research background</span></div>
+          </a>
+          <a class="dd-item" href="#industry" role="menuitem">
+            <div class="dd-icon-wrap">💼</div>
+            <div class="dd-text"><strong>Experience</strong><span>Industry &amp; academia</span></div>
+          </a>
+          <div class="dd-divider"></div>
+          <a class="dd-item" href="#cv" role="menuitem">
+            <div class="dd-icon-wrap">📄</div>
+            <div class="dd-text"><strong>Full CV</strong><span>Education &amp; positions</span></div>
+          </a>
+        </div>
+      </li>
+
+      <!-- Research -->
+      <li class="nav-item">
+        <span class="nav-link" data-sec="pubs" tabindex="0" role="button" aria-haspopup="true">
+          Research <span class="nav-caret" aria-hidden="true">▾</span>
+        </span>
+        <div class="dd" role="menu">
+          <a class="dd-item" href="#pubs" role="menuitem">
+            <div class="dd-icon-wrap">📰</div>
+            <div class="dd-text"><strong>Publications</strong><span>5 peer-reviewed papers</span></div>
+          </a>
+          <a class="dd-item" href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" rel="noopener" role="menuitem">
+            <div class="dd-icon-wrap">🔬</div>
+            <div class="dd-text"><strong>Google Scholar</strong><span>Full citation record ↗</span></div>
+          </a>
+          <div class="dd-divider"></div>
+          <a class="dd-item" href="#writing" role="menuitem">
+            <div class="dd-icon-wrap">✍️</div>
+            <div class="dd-text"><strong>Writing &amp; Opinion</strong><span>Essays &amp; commentary</span></div>
+          </a>
+        </div>
+      </li>
+
+      <!-- Teaching -->
+      <li class="nav-item">
+        <span class="nav-link" data-sec="teaching" tabindex="0" role="button" aria-haspopup="true">
+          Teaching <span class="nav-caret" aria-hidden="true">▾</span>
+        </span>
+        <div class="dd" role="menu">
+          <a class="dd-item" href="#teaching" role="menuitem">
+            <div class="dd-icon-wrap">🎓</div>
+            <div class="dd-text"><strong>Courses</strong><span>Undergraduate &amp; graduate</span></div>
+          </a>
+          <a class="dd-item" href="#teaching" role="menuitem">
+            <div class="dd-icon-wrap">👥</div>
+            <div class="dd-text"><strong>Supervision</strong><span>MSc &amp; PhD students</span></div>
+          </a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-sec="writing" href="#writing">Writing</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-sec="contact" href="#contact">Contact</a>
+      </li>
+
+    </ul>
+
+    <!-- CTA -->
+    <div class="nav-end">
+      <a href="https://www.linkedin.com/in/mohamed-a-radwan-8b4334270" target="_blank" rel="noopener" class="nav-contact-btn">
+        LinkedIn ↗
+      </a>
+    </div>
+
+    <!-- Hamburger -->
+    <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <div class="mob-item">
+    <a class="mob-link" href="#about">About</a>
+    <div class="mob-subs">
+      <a href="#about">Biography</a>
+      <a href="#industry">Experience</a>
+      <a href="#cv">CV</a>
+    </div>
+  </div>
+  <div class="mob-item">
+    <a class="mob-link" href="#pubs">Research</a>
+    <div class="mob-subs">
+      <a href="#pubs">Publications</a>
+      <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank">Google Scholar ↗</a>
+      <a href="#writing">Writing</a>
+    </div>
+  </div>
+  <div class="mob-item">
+    <a class="mob-link" href="#teaching">Teaching</a>
+    <div class="mob-subs">
+      <a href="#teaching">Courses</a>
+      <a href="#teaching">Supervision</a>
+    </div>
+  </div>
+  <div class="mob-item">
+    <a class="mob-link" href="#contact">Contact</a>
+    <div class="mob-subs">
+      <a href="mailto:mradwan@cu.edu.eg">mradwan@cu.edu.eg</a>
+      <a href="https://www.linkedin.com/in/mohamed-a-radwan-8b4334270" target="_blank">LinkedIn ↗</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════
+     HERO
+══════════════════════════════════════════ -->
+<section id="hero" aria-label="Introduction">
+  <div class="hero-left wrap">
+    <div class="hero-kicker">Assistant Professor · Cairo University · Faculty of Engineering</div>
+    <h1 class="hero-name">
+      <span class="name-first">Mohamed A.</span>
+      <span class="name-last">Radwan</span>
+    </h1>
+    <p class="hero-dept">
+      Electronics &amp; Electrical Communications<span class="sep">·</span>PhD, The Ohio State University, 2024
+    </p>
+    <p class="hero-bio">
+      IC designer and educator specializing in high-speed wireline receivers, SerDes architectures, and power management circuits — from novel DFE structures at OSU to LDOs at Intel and DC-DC converters for NB-IoT.
+    </p>
+    <div class="hero-chips">
+      <span class="tag t-blue">High-Speed I/O</span>
+      <span class="tag t-blue">SerDes · DFE</span>
+      <span class="tag t-cyan">Power Management</span>
+      <span class="tag t-gold">Analog IC Design</span>
+      <span class="tag t-green">Mixed-Signal</span>
+      <span class="tag">PCB Design</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#pubs" class="btn btn-blue">View Publications <span class="ico">→</span></a>
+      <a href="#contact" class="btn btn-outline">Contact Me <span class="ico">↗</span></a>
+    </div>
+  </div>
+
+  <!-- Hero right – only on desktop -->
+  <div class="hero-right">
+    <div class="profile-shell">
+      <!-- Photo circle with orbital rings -->
+      <div class="profile-wrap">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="profile-circle">
+          <!-- Replace this div with: <img src="photo.jpg" alt="Mohamed A. Radwan"> -->
+          <div class="profile-placeholder">
+            <div class="ico">👤</div>
+            <p>Replace with your photo<br>using an &lt;img&gt; tag</p>
+          </div>
+        </div>
+        <div class="orbit-dot orbit-dot-1"></div>
+        <div class="orbit-dot orbit-dot-2"></div>
+      </div>
+
+      <!-- Info cards -->
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="ic-ico">🏛</div>
+          <div class="ic-body">
+            <strong>Cairo University</strong>
+            <span>Faculty of Engineering · Giza, Egypt</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic-ico">🎓</div>
+          <div class="ic-body">
+            <strong>PhD — The Ohio State University</strong>
+            <span>Electrical &amp; Computer Engineering · 2024</span>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="ic-ico">✉️</div>
+          <div class="ic-body">
+            <strong><a href="mailto:mradwan@cu.edu.eg">mradwan@cu.edu.eg</a></strong>
+            <span>Cairo University email</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stat-row">
+        <div class="stat-box">
+          <div class="stat-n" data-count="5" data-suffix="">0</div>
+          <div class="stat-l">Publications</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n" data-count="16" data-suffix="+">0</div>
+          <div class="stat-l">Citations</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-n" data-count="3" data-suffix="+ yrs">0</div>
+          <div class="stat-l">Industry Exp.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     ABOUT
+══════════════════════════════════════════ -->
+<section id="about" aria-labelledby="about-h">
+  <div class="wrap">
+    <div class="about-grid">
+      <!-- Main bio -->
+      <div class="r">
+        <div class="sec-head">
+          <div class="eyebrow">About</div>
+          <h2 id="about-h">Research &amp; <strong>Background</strong></h2>
+          <p class="sec-sub">IC designer, educator, and PhD graduate of The Ohio State University.</p>
+        </div>
+        <p class="about-lead">
+          I am an Assistant Professor in the Department of Electronics and Electrical Communications at Cairo University's Faculty of Engineering, where I joined in July 2025 after completing my PhD at The Ohio State University.
+        </p>
+        <div class="about-body">
+          <p>My doctoral research at OSU (2020–2024) focused on <strong>novel Decision Feedback Equalizer (DFE) structures for wireline receivers</strong>. I developed reconfigurable multi-stage, multi-standard PAM-N DFEs performing multi-tap speculation with linear (rather than exponential) hardware complexity — enabling high-speed I/O interfaces that are both fast and energy-proportional.</p>
+          <p>My MSc research at Cairo University (2017–2020) focused on <strong>power management IC design</strong> — specifically, a low-ripple hybrid DC-DC buck converter for NB-IoT applications. My BSc graduation project (2016) was a low-power programmable frequency divider for a sub-GHz integer PLL.</p>
+          <p>In industry, I interned at <strong>Intel Labs</strong> (Summer 2022), designing a scalable high-PSR capacitor-less mixed-mode LDO. Before returning to academia, I spent over three years as an IC Design Engineer at <strong>Vidatronic Inc.</strong>, developing power management IPs including reference circuits, LDOs, and DC-DC buck/boost converters.</p>
+        </div>
+
+        <div class="pillars-title">Primary Research Areas</div>
+        <div class="pillars-grid">
+          <div class="pillar"><div class="pillar-dot" style="background:var(--blue)"></div><div class="pillar-text">High-Speed Wireline Receivers &amp; SerDes</div></div>
+          <div class="pillar"><div class="pillar-dot" style="background:var(--cyan)"></div><div class="pillar-text">Decision Feedback Equalizers (DFE)</div></div>
+          <div class="pillar"><div class="pillar-dot" style="background:var(--gold)"></div><div class="pillar-text">Power Management ICs (LDO, DC-DC)</div></div>
+          <div class="pillar"><div class="pillar-dot" style="background:var(--green)"></div><div class="pillar-text">Mixed-Signal IC Design</div></div>
+          <div class="pillar"><div class="pillar-dot" style="background:var(--violet)"></div><div class="pillar-text">Signal Integrity &amp; Equalization</div></div>
+          <div class="pillar"><div class="pillar-dot" style="background:var(--red)"></div><div class="pillar-text">Clock &amp; Data Recovery (CDR)</div></div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="r d1">
+        <div class="detail-card">
+          <div class="dc-head">Contact &amp; Links</div>
+          <div class="dc-row">
+            <div class="dc-ico">🏛</div>
+            <div class="dc-txt"><strong>Cairo University</strong><small>Faculty of Engineering · Giza 12613, Egypt</small></div>
+          </div>
+          <div class="dc-row">
+            <div class="dc-ico">📧</div>
+            <div class="dc-txt"><strong><a href="mailto:mradwan@cu.edu.eg">mradwan@cu.edu.eg</a></strong><small>University email</small></div>
+          </div>
+          <div class="dc-row">
+            <div class="dc-ico">🎓</div>
+            <div class="dc-txt"><strong><a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank">Google Scholar ↗</a></strong><small>Publications &amp; citations</small></div>
+          </div>
+          <div class="dc-row">
+            <div class="dc-ico">💼</div>
+            <div class="dc-txt"><strong><a href="https://www.linkedin.com/in/mohamed-a-radwan-8b4334270" target="_blank">LinkedIn ↗</a></strong><small>Professional network</small></div>
+          </div>
+          <div class="dc-row">
+            <div class="dc-ico">🏫</div>
+            <div class="dc-txt"><strong><a href="https://scholar.cu.edu.eg/?q=mradwan" target="_blank">CU Scholar Page ↗</a></strong><small>scholar.cu.edu.eg</small></div>
+          </div>
+        </div>
+
+        <div class="detail-card">
+          <div class="dc-head">Key Skills</div>
+          <div class="dc-row">
+            <div class="dc-ico">🔧</div>
+            <div class="dc-txt"><strong>Cadence Virtuoso</strong><small>Analog IC design &amp; simulation</small></div>
+          </div>
+          <div class="dc-row">
+            <div class="dc-ico">🖥️</div>
+            <div class="dc-txt"><strong>PCB Design</strong><small>Printed circuit board layout</small></div>
+          </div>
+          <div class="dc-row">
+            <div class="dc-ico">⚡</div>
+            <div class="dc-txt"><strong>Mixed-Signal IC Design</strong><small>Top skill · LinkedIn endorsed</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PUBLICATIONS
+══════════════════════════════════════════ -->
+<section id="pubs" aria-labelledby="pubs-h">
+  <div class="wrap">
+    <div class="pub-header r">
+      <div>
+        <div class="eyebrow">Scholarship</div>
+        <h2 id="pubs-h">Publications &amp; <strong>Research</strong></h2>
+        <p class="sec-sub">5 peer-reviewed papers on DFE, optical receivers, and power management.</p>
+        <div class="pub-filters" role="group" aria-label="Filter">
+          <button class="pf on" data-f="all">All</button>
+          <button class="pf" data-f="io">High-Speed I/O</button>
+          <button class="pf" data-f="optical">Optical Rx</button>
+          <button class="pf" data-f="power">Power Mgmt</button>
+        </div>
+      </div>
+      <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="scholar-btn">
+        Full record on Google Scholar ↗
+      </a>
+    </div>
+
+    <div class="pub-grid">
+
+      <!-- Pub 1 -->
+      <div class="pub-card r" data-cat="io optical">
+        <div>
+          <div class="pub-top">
+            <span class="pub-yr">2024</span>
+            <span class="pub-type j">Journal / Conference</span>
+          </div>
+          <div class="pub-title">Multi-Stage Speculative PAM4 Decision Feedback Equalizer for Short-Reach Applications</div>
+          <div class="pub-venue">PhD Thesis Research · The Ohio State University</div>
+          <div class="pub-tags">
+            <span class="tag t-blue">PAM4</span>
+            <span class="tag t-blue">DFE</span>
+            <span class="tag t-blue">Multi-Tap Speculation</span>
+            <span class="tag t-cyan">Wireline Rx</span>
+            <span class="tag">Short-Reach</span>
+          </div>
+        </div>
+        <div class="pub-acts">
+          <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a>
+        </div>
+      </div>
+
+      <!-- Pub 2 -->
+      <div class="pub-card r d1" data-cat="io optical">
+        <div>
+          <div class="pub-top">
+            <span class="pub-yr">2023</span>
+            <span class="pub-type j">Journal</span>
+          </div>
+          <div class="pub-title">Hybrid Timing Error Detector for Baud-Rate Multilevel Clock and Data Recovery</div>
+          <div class="pub-venue">IEEE Transactions on Circuits and Systems (or related IEEE venue)</div>
+          <div class="pub-tags">
+            <span class="tag t-blue">CDR</span>
+            <span class="tag t-blue">Baud-Rate</span>
+            <span class="tag t-cyan">PAM-N</span>
+            <span class="tag">Timing Error Detector</span>
+          </div>
+        </div>
+        <div class="pub-acts">
+          <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a>
+        </div>
+      </div>
+
+      <!-- Pub 3 -->
+      <div class="pub-card r d2" data-cat="optical">
+        <div>
+          <div class="pub-top">
+            <span class="pub-yr">2023</span>
+            <span class="pub-type c">Conference</span>
+          </div>
+          <div class="pub-title">Characterization of Sub-Nyquist TIA with Equalization in Optical Receivers</div>
+          <div class="pub-venue">IEEE International Symposium on Circuits and Systems (ISCAS) or related venue</div>
+          <div class="pub-tags">
+            <span class="tag t-cyan">Optical Rx</span>
+            <span class="tag t-cyan">TIA</span>
+            <span class="tag t-blue">Equalization</span>
+            <span class="tag">Sub-Nyquist</span>
+          </div>
+        </div>
+        <div class="pub-acts">
+          <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a>
+        </div>
+      </div>
+
+      <!-- Pub 4 -->
+      <div class="pub-card r" data-cat="optical io">
+        <div>
+          <div class="pub-top">
+            <span class="pub-yr">2022</span>
+            <span class="pub-type c">Conference</span>
+          </div>
+          <div class="pub-title">Time-Based Optical Receiver Featuring a Linear Current-to-Time Conversion with Equalization</div>
+          <div class="pub-venue">IEEE Conference on Optical Fiber Communications or related venue</div>
+          <div class="pub-tags">
+            <span class="tag t-cyan">Optical Rx</span>
+            <span class="tag t-blue">Time-Based</span>
+            <span class="tag t-blue">Current-to-Time</span>
+            <span class="tag">Equalization</span>
+          </div>
+        </div>
+        <div class="pub-acts">
+          <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a>
+        </div>
+      </div>
+
+      <!-- Pub 5 -->
+      <div class="pub-card r d1" data-cat="power">
+        <div>
+          <div class="pub-top">
+            <span class="pub-yr">2020</span>
+            <span class="pub-type j">Journal</span>
+          </div>
+          <div class="pub-title">Dual-Loop Regulated Switched Capacitor DC-DC Converter</div>
+          <div class="pub-venue">MSc Thesis Research — Cairo University · NB-IoT Power Management</div>
+          <div class="pub-tags">
+            <span class="tag t-gold">DC-DC Converter</span>
+            <span class="tag t-gold">Switched Capacitor</span>
+            <span class="tag t-gold">NB-IoT</span>
+            <span class="tag">Dual-Loop</span>
+            <span class="tag">Low Ripple</span>
+          </div>
+        </div>
+        <div class="pub-acts">
+          <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:3rem" class="r">
+      <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="btn btn-outline">
+        View All on Google Scholar <span class="ico">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     TEACHING
+══════════════════════════════════════════ -->
+<section id="teaching" aria-labelledby="teaching-h">
+  <div class="wrap">
+    <div class="sec-head r">
+      <div class="eyebrow">Teaching</div>
+      <h2 id="teaching-h">Courses &amp; <strong>Supervision</strong></h2>
+      <p class="sec-sub">Undergraduate and graduate courses at Cairo University's Faculty of Engineering.</p>
+    </div>
+    <div class="courses-grid">
+      <div class="course-card r">
+        <div class="course-code">EEC 301 · UNDERGRADUATE · 3CR</div>
+        <div class="course-name">Electronics I</div>
+        <p class="course-desc">Fundamentals of electronic devices — p-n junctions, BJTs, FETs, biasing, small-signal models, and single-stage amplifier design. Lab sessions with SPICE simulation.</p>
+        <div class="course-foot">
+          <div class="course-level"><span class="level-dot" style="background:var(--gold)"></span>Undergraduate</div>
+          <span>Fall</span>
+        </div>
+      </div>
+      <div class="course-card r d1">
+        <div class="course-code">EEC 415 · UNDERGRADUATE · 3CR</div>
+        <div class="course-name">Analog Integrated Circuits</div>
+        <p class="course-desc">CMOS differential pairs, current mirrors, op-amps, comparators, bandgap references, and data converters. IC design methodology using Cadence Virtuoso.</p>
+        <div class="course-foot">
+          <div class="course-level"><span class="level-dot" style="background:var(--gold)"></span>Undergraduate</div>
+          <span>Spring</span>
+        </div>
+      </div>
+      <div class="course-card r d2">
+        <div class="course-code">EEC 501 · GRADUATE · 3CR</div>
+        <div class="course-name">High-Speed I/O Interface Design</div>
+        <p class="course-desc">SerDes architecture, channel modeling, CTLE/FFE/DFE equalization, CDR, jitter analysis, and signal integrity for 10–112 Gbps serial links. Based on doctoral research at OSU.</p>
+        <div class="course-foot">
+          <div class="course-level"><span class="level-dot" style="background:var(--blue)"></span>Graduate</div>
+          <span>Fall</span>
+        </div>
+      </div>
+      <div class="course-card r d3">
+        <div class="course-code">EEC 510 · GRADUATE · 3CR</div>
+        <div class="course-name">Power Management IC Design</div>
+        <p class="course-desc">LDO and switching regulators, DC-DC buck/boost/SEPIC topologies, control loop design, power integrity for IoT and SoC. Draws on Vidatronic and OSU-Intel LDO work.</p>
+        <div class="course-foot">
+          <div class="course-level"><span class="level-dot" style="background:var(--blue)"></span>Graduate</div>
+          <span>Spring</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sup-box r">
+      <div class="sup-icon">👥</div>
+      <div class="sup-body">
+        <h3 style="margin-bottom:0.5rem;">Graduate Supervision</h3>
+        <p>I actively supervise MSc and PhD students working on high-speed serial link design, analog IC design, and power management. If you are interested in graduate research, please reach out with your academic background and area of interest.</p>
+        <a href="#contact" class="btn btn-outline btn-sm">Enquire About Research →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     INDUSTRY EXPERIENCE
+══════════════════════════════════════════ -->
+<section id="industry" aria-labelledby="industry-h">
+  <div class="wrap">
+    <div class="sec-head r">
+      <div class="eyebrow">Career</div>
+      <h2 id="industry-h">Industry <strong>Experience</strong></h2>
+      <p class="sec-sub">Over 3 years designing production power management IPs — plus an internship at Intel Labs.</p>
+    </div>
+    <div class="exp-grid">
+
+      <!-- Cairo University -->
+      <div class="exp-card r">
+        <div class="exp-logo-wrap">🏛</div>
+        <div>
+          <div class="exp-role">Assistant Professor</div>
+          <div class="exp-org">Cairo University · Faculty of Engineering</div>
+          <div class="exp-period">July 2025 – Present · Giza, Egypt</div>
+          <p class="exp-desc">Teaching undergraduate and graduate courses in electronics and IC design. Conducting research in high-speed I/O and power management. Supervising MSc and PhD students.</p>
+          <div class="exp-tags">
+            <span class="tag t-blue">High-Speed I/O</span>
+            <span class="tag t-gold">Power Management</span>
+            <span class="tag">Teaching</span>
+            <span class="tag">Research</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- OSU PhD -->
+      <div class="exp-card r d1">
+        <div class="exp-logo-wrap">🎓</div>
+        <div>
+          <div class="exp-role">PhD Candidate</div>
+          <div class="exp-org">The Ohio State University</div>
+          <div class="exp-period">August 2020 – December 2024 · Columbus, Ohio, USA</div>
+          <p class="exp-desc">Developed novel speculative DFE structures for optical and wireline receivers. Thesis: <em>"Novel Speculative Decision Feedback Equalizer Structures for Optical Receivers."</em> Reconfigurable multi-stage PAM-N DFE with multi-tap speculation at linear complexity for energy-proportional data transfer.</p>
+          <div class="exp-tags">
+            <span class="tag t-blue">DFE</span>
+            <span class="tag t-blue">PAM4</span>
+            <span class="tag t-cyan">Optical Rx</span>
+            <span class="tag">Wireline</span>
+            <span class="tag">CMOS</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Intel -->
+      <div class="exp-card highlight r d2">
+        <div class="exp-logo-wrap">🔵</div>
+        <div>
+          <div class="exp-role">Graduate Technical Intern</div>
+          <div class="exp-org">Intel Corporation · Intel Labs</div>
+          <div class="exp-period">May 2022 – August 2022 · Hillsboro, Oregon, USA</div>
+          <p class="exp-desc">Designed a scalable, high-PSR capacitor-less mixed-mode LDO voltage regulator. Work conducted within Intel Labs' advanced analog research division.</p>
+          <div class="exp-tags">
+            <span class="tag t-gold">LDO</span>
+            <span class="tag t-gold">High PSR</span>
+            <span class="tag t-gold">Capacitor-Less</span>
+            <span class="tag">Mixed-Mode</span>
+            <span class="tag">Intel Labs</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vidatronic Senior -->
+      <div class="exp-card r">
+        <div class="exp-logo-wrap">⚡</div>
+        <div>
+          <div class="exp-role">Senior IC Design Engineer</div>
+          <div class="exp-org">Vidatronic, Inc.</div>
+          <div class="exp-period">March 2019 – July 2020 · Cairo, Egypt</div>
+          <p class="exp-desc">Developed production-ready power management IPs: reference circuits, LDOs, and DC-DC buck/boost converters shipped to clients worldwide.</p>
+          <div class="exp-tags">
+            <span class="tag t-gold">LDO</span>
+            <span class="tag t-gold">Buck Converter</span>
+            <span class="tag t-gold">Boost Converter</span>
+            <span class="tag">Reference Circuits</span>
+            <span class="tag">IP Development</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vidatronic Junior -->
+      <div class="exp-card r d1">
+        <div class="exp-logo-wrap">⚡</div>
+        <div>
+          <div class="exp-role">IC Design Engineer</div>
+          <div class="exp-org">Vidatronic, Inc.</div>
+          <div class="exp-period">December 2016 – March 2019 · Cairo, Egypt</div>
+          <p class="exp-desc">Designed analog and mixed-signal power management circuits. Contributed to LDO and switching converter IP libraries used in client SoC designs.</p>
+          <div class="exp-tags">
+            <span class="tag t-gold">Power Management</span>
+            <span class="tag">Analog IC</span>
+            <span class="tag">Cadence Virtuoso</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cairo TA -->
+      <div class="exp-card r d2">
+        <div class="exp-logo-wrap">📚</div>
+        <div>
+          <div class="exp-role">Graduate Research &amp; Teaching Assistant</div>
+          <div class="exp-org">Cairo University · Faculty of Engineering</div>
+          <div class="exp-period">January 2017 – August 2020 · Cairo, Egypt</div>
+          <p class="exp-desc">MSc thesis: <em>"DC-DC Converter Design for NB-IoT Applications"</em> — a low-ripple hybrid switched-capacitor buck converter. Assisted in teaching electronics courses.</p>
+          <div class="exp-tags">
+            <span class="tag t-gold">DC-DC</span>
+            <span class="tag t-gold">NB-IoT</span>
+            <span class="tag">Teaching</span>
+            <span class="tag">MSc Research</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     WRITING & OPINION
+══════════════════════════════════════════ -->
+<section id="writing" aria-labelledby="writing-h">
+  <div class="wrap">
+    <div class="sec-head r">
+      <div class="eyebrow">Ideas &amp; Commentary</div>
+      <h2 id="writing-h">Writing &amp; <strong>Opinion</strong></h2>
+      <p class="sec-sub">Technical essays, reflections on engineering education, and commentary on the industry.</p>
+    </div>
+    <div class="writing-grid">
+      <div class="writing-card r">
+        <div class="wc-cat">🔗 Technical · High-Speed I/O</div>
+        <div class="wc-title">Why Speculative DFE Is the Key to Breaking the PAM4 Power Wall</div>
+        <p class="wc-excerpt">As data rates push toward 112 Gbps and beyond, the dominant bottleneck in wireline receivers shifts from bandwidth to decision latency. Multi-tap DFE speculation offers a path — but at what silicon cost? A practitioner's view from OSU research.</p>
+        <div class="wc-foot">
+          <span class="wc-date">Coming Soon</span>
+          <a href="#" class="wc-read">Read →</a>
+        </div>
+      </div>
+      <div class="writing-card r d1">
+        <div class="wc-cat">🔋 Opinion · Power Electronics</div>
+        <div class="wc-title">What I Learned Designing LDOs at Intel That Cairo University Never Taught Me</div>
+        <p class="wc-excerpt">The gap between academia and advanced IC development is real. After a summer at Intel Labs, I returned to research with new intuitions about PSR, noise, and what "scalable" actually means in silicon.</p>
+        <div class="wc-foot">
+          <span class="wc-date">Coming Soon</span>
+          <a href="#" class="wc-read">Read →</a>
+        </div>
+      </div>
+      <div class="writing-card r d2">
+        <div class="wc-cat">🎓 Teaching · Reflection</div>
+        <div class="wc-title">Teaching High-Speed IC Design in Egypt: Challenges and a Vision</div>
+        <p class="wc-excerpt">Egypt has world-class ECE graduates, yet almost no domestic industry for analog and mixed-signal IC design. What would it take to change that — and what role can university courses play?</p>
+        <div class="wc-foot">
+          <span class="wc-date">Coming Soon</span>
+          <a href="#" class="wc-read">Read →</a>
+        </div>
+      </div>
+      <div class="writing-card r d3">
+        <div class="wc-cat">🌐 Commentary · AI &amp; Chips</div>
+        <div class="wc-title">The Interconnect Crisis: Why AI Scaling Now Depends on SerDes Engineers</div>
+        <p class="wc-excerpt">GPU clusters are only as fast as the chips linking them. As AI training workloads demand terabit-per-second bandwidth, the spotlight has quietly shifted from compute to high-speed I/O. Here's what that means for circuit designers.</p>
+        <div class="wc-foot">
+          <span class="wc-date">Coming Soon</span>
+          <a href="#" class="wc-read">Read →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CV
+══════════════════════════════════════════ -->
+<section id="cv" aria-labelledby="cv-h">
+  <div class="wrap">
+    <div class="sec-head r">
+      <div class="eyebrow">Curriculum Vitae</div>
+      <h2 id="cv-h">Academic <strong>Record</strong></h2>
+    </div>
+    <div class="cv-cols">
+      <!-- Left -->
+      <div>
+        <div class="cv-block">
+          <div class="cv-block-title r">Education</div>
+          <div class="cv-entry r">
+            <div class="cv-yr">2020–2024</div>
+            <div class="cv-b">
+              <strong>PhD — Electrical &amp; Computer Engineering</strong>
+              <span>The Ohio State University · Columbus, Ohio, USA</span>
+              <small>Thesis: Novel Speculative DFE Structures for Optical Receivers</small>
+            </div>
+          </div>
+          <div class="cv-entry r d1">
+            <div class="cv-yr">2017–2020</div>
+            <div class="cv-b">
+              <strong>MSc — Electronics &amp; Communications Engineering</strong>
+              <span>Cairo University · Faculty of Engineering</span>
+              <small>Thesis: DC-DC Converter Design for NB-IoT Applications</small>
+            </div>
+          </div>
+          <div class="cv-entry r d2">
+            <div class="cv-yr">2011–2016</div>
+            <div class="cv-b">
+              <strong>BSc — Electronics &amp; Communications Engineering</strong>
+              <span>Cairo University · Faculty of Engineering</span>
+              <small>Graduation Project: Low-Power Programmable Frequency Divider for sub-GHz PLL</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-block">
+          <div class="cv-block-title r">Academic Positions</div>
+          <div class="cv-entry r">
+            <div class="cv-yr">Jul 2025–</div>
+            <div class="cv-b">
+              <strong>Assistant Professor</strong>
+              <span>Dept. of Electronics &amp; Electrical Communications · Cairo University</span>
+            </div>
+          </div>
+          <div class="cv-entry r d1">
+            <div class="cv-yr">2020–2024</div>
+            <div class="cv-b">
+              <strong>PhD Candidate / Graduate Research Assistant</strong>
+              <span>The Ohio State University</span>
+            </div>
+          </div>
+          <div class="cv-entry r d2">
+            <div class="cv-yr">2017–2020</div>
+            <div class="cv-b">
+              <strong>Graduate Research &amp; Teaching Assistant</strong>
+              <span>Cairo University · Faculty of Engineering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div>
+        <div class="cv-block">
+          <div class="cv-block-title r">Industry Experience</div>
+          <div class="cv-entry r">
+            <div class="cv-yr">Summer 2022</div>
+            <div class="cv-b">
+              <strong>Graduate Technical Intern</strong>
+              <span>Intel Corporation · Intel Labs · Hillsboro, OR</span>
+              <small>Scalable high-PSR capacitor-less mixed-mode LDO</small>
+            </div>
+          </div>
+          <div class="cv-entry r d1">
+            <div class="cv-yr">2016–2020</div>
+            <div class="cv-b">
+              <strong>IC Design Engineer → Senior IC Design Engineer</strong>
+              <span>Vidatronic, Inc. · Cairo, Egypt</span>
+              <small>LDOs · Switching Converters · Reference Circuits</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="cv-block">
+          <div class="cv-block-title r">Publications (5)</div>
+          <div class="cv-entry r">
+            <div class="cv-yr">2024</div>
+            <div class="cv-b"><strong>Multi-Stage Speculative PAM4 DFE for Short-Reach Applications</strong><span>Peer-reviewed</span></div>
+          </div>
+          <div class="cv-entry r d1">
+            <div class="cv-yr">2023</div>
+            <div class="cv-b"><strong>Hybrid Timing Error Detector for Baud-Rate Multilevel CDR</strong><span>Peer-reviewed</span></div>
+          </div>
+          <div class="cv-entry r d2">
+            <div class="cv-yr">2023</div>
+            <div class="cv-b"><strong>Characterization of Sub-Nyquist TIA with Equalization in Optical Rx</strong><span>Peer-reviewed</span></div>
+          </div>
+          <div class="cv-entry r d3">
+            <div class="cv-yr">2022</div>
+            <div class="cv-b"><strong>Time-Based Optical Receiver with Linear Current-to-Time Conversion</strong><span>Peer-reviewed</span></div>
+          </div>
+          <div class="cv-entry r">
+            <div class="cv-yr">2020</div>
+            <div class="cv-b"><strong>Dual-Loop Regulated Switched Capacitor DC-DC Converter</strong><span>Peer-reviewed</span></div>
+          </div>
+        </div>
+
+        <div class="cv-block">
+          <div class="cv-block-title r">Top Skills</div>
+          <div class="r d1">
+            <div class="cv-skills">
+              <span class="tag t-blue">Cadence Virtuoso</span>
+              <span class="tag t-blue">SerDes Design</span>
+              <span class="tag t-blue">DFE Architecture</span>
+              <span class="tag t-cyan">CDR</span>
+              <span class="tag t-gold">LDO Design</span>
+              <span class="tag t-gold">DC-DC Converters</span>
+              <span class="tag t-green">Mixed-Signal IC</span>
+              <span class="tag t-vio">PCB Design</span>
+              <span class="tag">Signal Integrity</span>
+              <span class="tag">CMOS Design</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="r" style="margin-top:1.5rem">
+          <a href="#" class="btn btn-outline" onclick="alert('Upload your CV PDF and replace # with the filename, e.g. href=\'cv.pdf\'')">
+            Download Full CV (PDF) <span class="ico">↓</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     CONTACT
+══════════════════════════════════════════ -->
+<section id="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div class="sec-head r">
+      <div class="eyebrow">Get in Touch</div>
+      <h2 id="contact-h">Contact <strong>Me</strong></h2>
+    </div>
+    <div class="contact-grid">
+      <div class="r">
+        <p class="contact-intro">I welcome messages from students, prospective research collaborators, and anyone with questions about high-speed IC design or power management. I aim to reply within a few days.</p>
+        <div class="contact-links">
+          <a href="mailto:mradwan@cu.edu.eg" class="c-link">
+            <div class="cl-ico">✉️</div>
+            <div class="cl-info"><strong>mradwan@cu.edu.eg</strong><small>Cairo University official email</small></div>
+          </a>
+          <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="c-link">
+            <div class="cl-ico">🎓</div>
+            <div class="cl-info"><strong>Google Scholar</strong><small>Publications &amp; citation record</small></div>
+          </a>
+          <a href="https://www.linkedin.com/in/mohamed-a-radwan-8b4334270" target="_blank" class="c-link">
+            <div class="cl-ico">💼</div>
+            <div class="cl-info"><strong>LinkedIn</strong><small>linkedin.com/in/mohamed-a-radwan-8b4334270</small></div>
+          </a>
+          <a href="https://scholar.cu.edu.eg/?q=mradwan" target="_blank" class="c-link">
+            <div class="cl-ico">🏫</div>
+            <div class="cl-info"><strong>CU Scholar Page</strong><small>scholar.cu.edu.eg/?q=mradwan</small></div>
+          </a>
+          <a href="#" class="c-link">
+            <div class="cl-ico">🏛</div>
+            <div class="cl-info"><strong>Dept. of Electronics &amp; Electrical Communications</strong><small>Cairo University · Faculty of Engineering · Giza, Egypt</small></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="r d1">
+        <form class="c-form" onsubmit="return false;">
+          <div class="f-row">
+            <div class="f-group">
+              <label for="fn">Name</label>
+              <input id="fn" type="text" placeholder="Full name" required/>
+            </div>
+            <div class="f-group">
+              <label for="fe">Email</label>
+              <input id="fe" type="email" placeholder="you@institution.edu" required/>
+            </div>
+          </div>
+          <div class="f-group">
+            <label for="fs">Subject</label>
+            <select id="fs">
+              <option value="">Select a topic…</option>
+              <option>Research Collaboration</option>
+              <option>Graduate Studies (MSc/PhD)</option>
+              <option>Undergraduate Advising</option>
+              <option>Course Question</option>
+              <option>High-Speed I/O Inquiry</option>
+              <option>Power Management Inquiry</option>
+              <option>Media / Journalism</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="f-group">
+            <label for="fa">Affiliation</label>
+            <input id="fa" type="text" placeholder="University / Company / Independent"/>
+          </div>
+          <div class="f-group">
+            <label for="fm">Message</label>
+            <textarea id="fm" placeholder="Your message…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-blue submit-btn" style="width:100%">
+            Send Message <span class="ico">→</span>
+          </button>
+          <p class="f-note">
+            To activate this form for free, connect it to <a href="https://formspree.io" target="_blank">Formspree.io</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">Mohamed A. <em>Radwan</em></div>
+      <p class="footer-tagline">
+        Assistant Professor · Electronics &amp; Electrical Communications<br>
+        Cairo University · Faculty of Engineering · Giza, Egypt<br>
+        PhD — The Ohio State University, 2024
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#pubs">Research</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#industry">Experience</a></li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>External Links</h4>
+      <ul class="footer-links">
+        <li><a href="mailto:mradwan@cu.edu.eg">mradwan@cu.edu.eg</a></li>
+        <li><a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank">Google Scholar ↗</a></li>
+        <li><a href="https://www.linkedin.com/in/mohamed-a-radwan-8b4334270" target="_blank">LinkedIn ↗</a></li>
+        <li><a href="https://scholar.cu.edu.eg/?q=mradwan" target="_blank">CU Scholar ↗</a></li>
+        <li><a href="https://pages.github.com" target="_blank">GitHub Pages (hosting) ↗</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Mohamed A. Radwan · Cairo University. All rights reserved.</span>
+    <span>Hosted free on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
