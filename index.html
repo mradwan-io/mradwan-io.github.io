@@ -3,1029 +3,516 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="description" content="Mohamed A. Radwan — Assistant Professor, Cairo University. PhD OSU 2024. High-Speed I/O, SerDes, DFE, Power Management ICs."/>
-<title>Mohamed A. Radwan | Assistant Professor, Cairo University</title>
+<meta name="description" content="Mohamed A. Radwan — Assistant Professor, Cairo University. PhD OSU 2024."/>
+<title>Home | Mohamed A. Radwan</title>
 <style>
-/* ─────────────────────────────────────────
-   RESET & ROOT
-───────────────────────────────────────── */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  font-family:'Lora',Georgia,'Times New Roman',serif;
-  background:#07090e;color:#eceef6;
-  line-height:1.76;overflow-x:hidden;font-size:16px;
-}
+body{font-family:Georgia,'Times New Roman',serif;background:#07090e;color:#eceef6;line-height:1.76;overflow-x:hidden;font-size:16px}
 ::selection{background:rgba(77,156,248,.28)}
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:#07090e}
-::-webkit-scrollbar-thumb{background:#1a2036;border-radius:2px}
-::-webkit-scrollbar-thumb:hover{background:#4d9cf8}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#07090e}::-webkit-scrollbar-thumb{background:#1a2036;border-radius:2px}::-webkit-scrollbar-thumb:hover{background:#4d9cf8}
 a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
 
-/* ─────────────────────────────────────────
-   DESIGN TOKENS
-───────────────────────────────────────── */
 :root{
-  --void:#07090e;   --deep:#0b0e17;  --layer:#0f1320;
-  --surf:#141828;   --raise:#1a2036; --lift:#20273f;
-  --ink:#eceef6;    --ink2:#8b93b2;  --ink3:#4d5472;
-  --blue:#4d9cf8;   --blue-a:rgba(77,156,248,.12); --blue-g:rgba(77,156,248,.24);
-  --cyan:#35d4f0;   --cyan-a:rgba(53,212,240,.1);
-  --gold:#e0a835;   --gold-a:rgba(224,168,53,.1);
-  --green:#35c98a;  --vio:#9d7ae8;   --red:#e05858;
-  --border:rgba(255,255,255,.065);
-  --border-b:rgba(77,156,248,.22);
-  --border-g:rgba(210,158,50,.25);
-  --fd:'Georgia','Times New Roman',serif;
-  --fb:Georgia,'Times New Roman',serif;
-  --fm:'Courier New',Courier,monospace;
-  --nav:64px; --max:1160px; --gx:6%;
+  --void:#07090e;--deep:#0b0e17;--layer:#0f1320;--surf:#141828;--raise:#1a2036;--lift:#20273f;
+  --ink:#eceef6;--ink2:#8b93b2;--ink3:#4d5472;
+  --blue:#4d9cf8;--blue-a:rgba(77,156,248,.12);--blue-g:rgba(77,156,248,.24);
+  --cyan:#35d4f0;--cyan-a:rgba(53,212,240,.1);
+  --gold:#e0a835;--gold-a:rgba(224,168,53,.1);
+  --green:#35c98a;--vio:#9d7ae8;--red:#e05858;
+  --border:rgba(255,255,255,.065);--border-b:rgba(77,156,248,.22);--border-g:rgba(210,158,50,.25);
+  --fd:Georgia,'Times New Roman',serif;--fm:'Courier New',Courier,monospace;
+  --nav:64px;--max:1160px;--gx:6%;
   --ease:cubic-bezier(.22,1,.36,1);
 }
 
-/* ─────────────────────────────────────────
-   LAYOUT
-───────────────────────────────────────── */
+/* Layout */
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gx)}
-section{padding:6.5rem 0;position:relative;z-index:1}
-section+section::before{content:'';display:block;position:absolute;top:0;left:5%;right:5%;height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
-#hero    {background:var(--void)}
-#about   {background:var(--layer)}
-#pubs    {background:var(--deep)}
-#teaching{background:var(--layer)}
-#industry{background:var(--deep)}
-#writing {background:var(--void)}
-#cv      {background:var(--layer)}
-#contact {background:var(--deep)}
+.page-body{padding-top:calc(var(--nav) + 2rem)}
 
-/* ─────────────────────────────────────────
-   ANIMATED BACKGROUND CANVAS
-───────────────────────────────────────── */
-#bgc{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.22}
+/* Canvas */
+#bgc{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.2}
 
-/* ─────────────────────────────────────────
-   TYPOGRAPHY UTILS
-───────────────────────────────────────── */
+/* Typography */
 h1,h2,h3,h4{font-family:var(--fd);line-height:1.1}
-h2{font-size:clamp(1.9rem,3vw,2.75rem);font-weight:700}
-h3{font-size:1.18rem;font-weight:700}
+h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700}
+h3{font-size:1.15rem;font-weight:700}
+.eyebrow{font-family:var(--fm);font-size:.67rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--blue);flex-shrink:0}
+.sec-head{margin-bottom:2.5rem}
+.sec-sub{font-size:.96rem;color:var(--ink2);margin-top:.45rem;font-style:italic}
+.page-intro{font-size:1.06rem;line-height:1.88;color:rgba(236,238,246,.78);border-left:2px solid var(--blue);padding-left:1.1rem;font-style:italic;margin-bottom:3rem}
 
-.eyebrow{
-  font-family:var(--fm);font-size:.68rem;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--blue);
-  display:flex;align-items:center;gap:.65rem;margin-bottom:.85rem;
-}
-.eyebrow::before{content:'';width:22px;height:1px;background:var(--blue);flex-shrink:0}
-
-.sec-head{margin-bottom:2.8rem}
-.sec-sub{font-size:.98rem;color:var(--ink2);margin-top:.5rem;max-width:510px;font-style:italic}
-
-/* ─────────────────────────────────────────
-   TAGS
-───────────────────────────────────────── */
-.tag{
-  display:inline-flex;align-items:center;
-  font-family:var(--fm);font-size:.63rem;letter-spacing:.05em;
-  padding:.17rem .55rem;border-radius:3px;
-  border:1px solid var(--border);color:var(--ink3);
-}
+/* Tags */
+.tag{display:inline-flex;align-items:center;font-family:var(--fm);font-size:.62rem;letter-spacing:.05em;padding:.16rem .52rem;border-radius:3px;border:1px solid var(--border);color:var(--ink3)}
 .t-b{border-color:rgba(77,156,248,.3);color:var(--blue);background:var(--blue-a)}
 .t-c{border-color:rgba(53,212,240,.3);color:var(--cyan);background:var(--cyan-a)}
 .t-g{border-color:rgba(224,168,53,.3);color:var(--gold);background:var(--gold-a)}
 .t-n{border-color:rgba(53,201,138,.3);color:var(--green);background:rgba(53,201,138,.08)}
 .t-v{border-color:rgba(157,122,232,.3);color:var(--vio);background:rgba(157,122,232,.08)}
 
-/* ─────────────────────────────────────────
-   BUTTONS
-───────────────────────────────────────── */
-.btn{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-family:var(--fd);font-size:.78rem;font-weight:700;
-  letter-spacing:.07em;text-transform:uppercase;
-  padding:.7rem 1.6rem;border-radius:3px;
-  cursor:pointer;border:none;transition:all .22s var(--ease);
-}
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:.76rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.68rem 1.5rem;border-radius:3px;cursor:pointer;border:none;transition:all .22s var(--ease)}
 .btn .x{display:inline-block;transition:transform .2s}
 .btn:hover .x{transform:translateX(3px)}
 .btn-blue{background:var(--blue);color:#fff;box-shadow:0 0 22px var(--blue-g)}
-.btn-blue:hover{background:#3a8de0;transform:translateY(-1px);box-shadow:0 0 34px var(--blue-g)}
+.btn-blue:hover{background:#3a8de0;transform:translateY(-1px)}
 .btn-out{background:transparent;color:var(--ink);border:1.5px solid var(--border)}
 .btn-out:hover{border-color:var(--blue);color:var(--blue)}
-.btn-sm{padding:.46rem 1rem;font-size:.72rem}
+.btn-sm{padding:.44rem .95rem;font-size:.7rem}
 
-/* ─────────────────────────────────────────
-   NAVIGATION
-───────────────────────────────────────── */
-.nav{
-  position:fixed;top:0;left:0;width:100%;height:var(--nav);z-index:1000;
-  background:rgba(7,9,14,.8);backdrop-filter:blur(20px) saturate(160%);
-  border-bottom:1px solid var(--border);transition:background .3s,box-shadow .3s;
-}
-.nav.scrolled{background:rgba(7,9,14,.97);box-shadow:0 4px 40px rgba(0,0,0,.55)}
-.nav-inner{
-  height:100%;display:flex;align-items:center;justify-content:space-between;
-  max-width:var(--max);margin:0 auto;padding:0 var(--gx);gap:1rem;
-}
-
-/* Brand */
-.brand{display:flex;align-items:center;gap:.55rem;font-family:var(--fd);font-size:.95rem;font-weight:700;flex-shrink:0}
+/* Navigation */
+.nav{position:fixed;top:0;left:0;width:100%;height:var(--nav);z-index:1000;background:rgba(7,9,14,.82);backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid var(--border);transition:background .3s,box-shadow .3s}
+.nav.scrolled{background:rgba(7,9,14,.97);box-shadow:0 4px 40px rgba(0,0,0,.5)}
+.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:0 var(--gx);gap:1rem}
+.brand{display:flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:.93rem;font-weight:700;flex-shrink:0}
 .brand-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue);animation:blink 2.8s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1;box-shadow:0 0 8px var(--blue)}50%{opacity:.4;box-shadow:0 0 18px var(--cyan)}}
 .brand em{color:var(--blue);font-style:italic}
-
-/* Links */
-.nav-links{display:flex;align-items:center;list-style:none;gap:.1rem;flex:1;justify-content:center}
-.nav-item{position:relative}
-.nav-link{
-  display:flex;align-items:center;gap:.25rem;
-  padding:.4rem .78rem;border-radius:5px;
-  font-family:var(--fd);font-size:.74rem;font-weight:700;
-  letter-spacing:.055em;text-transform:uppercase;
-  color:var(--ink2);cursor:pointer;
-  transition:color .18s,background .18s;white-space:nowrap;
-}
+.nav-links{display:flex;align-items:center;list-style:none;gap:.1rem}
+.nav-link{padding:.38rem .75rem;border-radius:4px;font-family:var(--fm);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);transition:color .18s,background .18s;white-space:nowrap}
 .nav-link:hover,.nav-link.active{color:var(--blue);background:var(--blue-a)}
-.caret{font-size:.5rem;opacity:.6;display:inline-block;transition:transform .22s,opacity .22s}
-.nav-item:hover>.nav-link .caret{transform:rotate(180deg);opacity:1}
-
-/* Dropdown */
-.drop{
-  position:absolute;top:calc(100% + 10px);left:50%;
-  transform:translateX(-50%) translateY(-8px);
-  min-width:248px;background:var(--surf);
-  border:1px solid var(--border-b);border-radius:10px;
-  padding:.5rem;opacity:0;visibility:hidden;pointer-events:none;
-  transition:opacity .2s var(--ease),transform .2s var(--ease),visibility .2s;
-  box-shadow:0 20px 56px rgba(0,0,0,.55);z-index:200;
-}
-.drop::before{
-  content:'';position:absolute;top:-5.5px;left:50%;
-  transform:translateX(-50%) rotate(45deg);
-  width:10px;height:10px;background:var(--surf);
-  border-left:1px solid var(--border-b);border-top:1px solid var(--border-b);
-}
-.nav-item:hover .drop,.nav-item:focus-within .drop{
-  opacity:1;visibility:visible;pointer-events:all;
-  transform:translateX(-50%) translateY(0);
-}
-.drop-item{
-  display:flex;align-items:center;gap:.8rem;
-  padding:.62rem .86rem;border-radius:6px;
-  color:var(--ink2);transition:background .15s,color .15s;cursor:pointer;
-}
-.drop-item:hover{background:var(--blue-a);color:var(--blue)}
-.drop-item:hover .di-icon{border-color:var(--blue)}
-.di-icon{
-  width:32px;height:32px;border-radius:6px;
-  background:var(--raise);border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  font-size:.85rem;flex-shrink:0;transition:border-color .15s;
-}
-.di-text strong{display:block;font-family:var(--fd);font-size:.78rem;font-weight:600;color:var(--ink)}
-.di-text span{font-size:.66rem;color:var(--ink3);font-family:var(--fm)}
-.drop-sep{height:1px;background:var(--border);margin:.3rem 0}
-
-/* Nav end */
 .nav-end{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
-.nav-cta{
-  font-family:var(--fd);font-size:.72rem;font-weight:700;
-  letter-spacing:.06em;text-transform:uppercase;
-  padding:.4rem 1rem;border-radius:4px;
-  background:var(--blue);color:#fff;
-  box-shadow:0 0 14px var(--blue-g);
-  transition:background .2s,transform .2s;
-}
+.nav-cta{font-family:var(--fm);font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.38rem .95rem;border-radius:4px;background:var(--blue);color:#fff;box-shadow:0 0 12px var(--blue-g);transition:background .2s,transform .2s}
 .nav-cta:hover{background:#3a8de0;transform:translateY(-1px)}
-
-/* Hamburger */
 .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none}
 .ham span{display:block;width:22px;height:1.5px;background:var(--ink);border-radius:1px;transition:all .28s var(--ease)}
 .ham.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
 .ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .ham.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
-
-/* Mobile nav */
-.mob-nav{
-  position:fixed;inset:0;top:var(--nav);
-  background:rgba(7,9,14,.98);backdrop-filter:blur(20px);
-  z-index:999;padding:2.5rem var(--gx);
-  transform:translateX(100%);transition:transform .38s var(--ease);
-  overflow-y:auto;
-}
+.mob-nav{position:fixed;inset:0;top:var(--nav);background:rgba(7,9,14,.98);backdrop-filter:blur(20px);z-index:999;padding:2.2rem var(--gx);transform:translateX(100%);transition:transform .38s var(--ease);overflow-y:auto}
 .mob-nav.open{transform:translateX(0)}
-.mob-sect{border-bottom:1px solid var(--border);padding:.85rem 0}
-.mob-title{font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--ink);display:block;margin-bottom:.45rem;transition:color .18s}
-.mob-title:hover{color:var(--blue)}
-.mob-subs{display:flex;flex-wrap:wrap;gap:.4rem}
-.mob-subs a{font-family:var(--fm);font-size:.68rem;color:var(--ink2);padding:.2rem .58rem;border:1px solid var(--border);border-radius:3px;transition:all .15s}
-.mob-subs a:hover{border-color:var(--blue);color:var(--blue)}
+.mob-link{display:block;font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--ink);padding:.75rem 0;border-bottom:1px solid var(--border);transition:color .18s}
+.mob-link:hover,.mob-link.active{color:var(--blue)}
 
-/* ─────────────────────────────────────────
-   HERO
-───────────────────────────────────────── */
-#hero{
-  min-height:100vh;padding-top:var(--nav);
-  display:grid;grid-template-columns:1.1fr .9fr;
-  align-items:center;overflow:hidden;
-}
-#hero::before{
-  content:'';position:absolute;right:-5%;top:5%;
-  width:55vw;height:75vh;pointer-events:none;z-index:0;
-  background:radial-gradient(ellipse at 60% 50%,rgba(77,156,248,.07) 0%,transparent 65%);
-}
+/* Page header (for sub-pages) */
+.page-header{background:var(--void);padding:5rem 0 4rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;right:-10%;top:-20%;width:60vw;height:80vh;background:radial-gradient(ellipse at 60% 40%,rgba(77,156,248,.06),transparent 65%);pointer-events:none}
+.page-header h1{font-size:clamp(2.2rem,4vw,3.8rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.5rem}
+.page-header h1 em{color:var(--blue);font-style:italic}
+.page-header .sub{font-size:1rem;color:var(--ink2);font-style:italic;margin-top:.5rem}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.67rem;color:var(--ink3);margin-bottom:1.5rem}
+.breadcrumb a{color:var(--blue);transition:opacity .18s}
+.breadcrumb a:hover{opacity:.75}
+.breadcrumb .sep{opacity:.4}
 
-.hero-left{padding:5% var(--gx);position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center}
-.hero-kicker{
-  font-family:var(--fm);font-size:.68rem;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--blue);
-  display:flex;align-items:center;gap:.75rem;margin-bottom:1.65rem;
-}
-.hero-kicker::before{content:'';width:26px;height:1px;background:var(--blue);flex-shrink:0}
+/* Footer */
+footer{background:var(--void);border-top:1px solid var(--border);padding:2.5rem 0 1.5rem;position:relative;z-index:1}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gx);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-brand{font-family:var(--fd);font-size:.9rem;font-weight:700}
+.footer-brand em{color:var(--blue);font-style:italic}
+.footer-links{display:flex;gap:1.2rem;flex-wrap:wrap}
+.footer-links a{font-family:var(--fm);font-size:.67rem;color:var(--ink3);transition:color .18s}
+.footer-links a:hover{color:var(--blue)}
+.footer-copy{width:100%;font-family:var(--fm);font-size:.64rem;color:var(--ink3);border-top:1px solid var(--border);padding-top:1rem;margin-top:.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.footer-copy a{color:var(--blue)}
 
-.hero-name{
-  font-family:var(--fd);font-weight:800;
-  font-size:clamp(2.9rem,5.5vw,5.7rem);
-  line-height:1.0;letter-spacing:-.025em;margin-bottom:.55rem;
-}
-.name-1{display:block;color:var(--ink)}
-.name-2{display:block;color:var(--blue);font-style:italic}
+/* Shared card styles */
+.card{background:var(--surf);border:1px solid var(--border);border-radius:9px;transition:border-color .22s,transform .22s}
+.card:hover{border-color:var(--border-b)}
 
-.hero-dept{font-family:var(--fm);font-size:.78rem;color:var(--ink2);letter-spacing:.04em;margin-bottom:1.75rem}
-.hero-dept .sep{opacity:.35;margin:0 .5rem}
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.rv{animation:fadeUp .65s var(--ease) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}
 
-.hero-bio{
-  font-size:1.01rem;line-height:1.88;
-  color:rgba(236,238,246,.72);
-  max-width:480px;margin-bottom:2.2rem;
-  border-left:2px solid var(--blue);
-  padding-left:1.15rem;font-style:italic;
-}
+/* Back to top */
+.btt{position:fixed;bottom:1.8rem;right:1.8rem;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;border:none;font-size:1rem;cursor:pointer;z-index:500;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px var(--blue-g);opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;pointer-events:none}
+.btt.show{opacity:1;transform:none;pointer-events:all}
+.btt:hover{background:#3a8de0;transform:translateY(-2px)!important}
 
-.hero-chips{display:flex;flex-wrap:wrap;gap:.48rem;margin-bottom:2.3rem}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-
-/* Hero right panel */
-.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:4rem 2rem}
-.profile-shell{position:relative;width:305px}
-
-.profile-wrap{width:252px;height:252px;position:relative;margin:0 auto 1.85rem}
-.profile-circle{
-  width:100%;height:100%;border-radius:50%;
-  background:var(--surf);border:1.5px solid var(--border-b);
-  overflow:hidden;display:flex;align-items:center;justify-content:center;
-  position:relative;z-index:2;
-}
-.profile-circle img{width:100%;height:100%;object-fit:cover}
-.ph-inner{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.5rem;padding:1.5rem}
-.ph-icon{font-size:3.4rem;opacity:.16}
-.ph-inner p{font-size:.62rem;color:var(--ink3);font-family:var(--fm);line-height:1.5}
-
-/* orbital rings */
-.ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);border:1px dashed}
-.ring-1{width:calc(100% + 34px);height:calc(100% + 34px);border-color:rgba(77,156,248,.18);animation:spin-cw 22s linear infinite}
-.ring-2{width:calc(100% + 66px);height:calc(100% + 66px);border-color:rgba(53,212,240,.07);animation:spin-ccw 35s linear infinite}
-@keyframes spin-cw{to{transform:translate(-50%,-50%) rotate(360deg)}}
-@keyframes spin-ccw{to{transform:translate(-50%,-50%) rotate(-360deg)}}
-
-.orb{position:absolute;width:9px;height:9px;border-radius:50%;top:50%;left:50%}
-.orb-1{background:var(--blue);box-shadow:0 0 10px var(--blue);animation:orbit1 7s linear infinite}
-.orb-2{background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:orbit1 7s linear infinite reverse;animation-delay:-3.5s}
-@keyframes orbit1{
-  from{transform:translate(-50%,-50%) rotate(0deg) translateX(144px) rotate(0deg)}
-  to{transform:translate(-50%,-50%) rotate(360deg) translateX(144px) rotate(-360deg)}
-}
-
-/* info cards */
-.info-cards{display:flex;flex-direction:column;gap:.58rem}
-.info-card{background:var(--raise);border:1px solid var(--border);border-radius:7px;padding:.7rem .95rem;display:flex;align-items:center;gap:.76rem;transition:border-color .2s}
-.info-card:hover{border-color:var(--blue)}
-.ic-ico{font-size:.95rem;flex-shrink:0}
-.ic-body strong{display:block;font-family:var(--fd);font-size:.82rem;font-weight:600}
-.ic-body span{font-size:.68rem;color:var(--ink2);font-family:var(--fm)}
-.ic-body a{color:var(--blue)}
-.ic-body a:hover{text-decoration:underline}
-
-/* stat row */
-.stat-row{display:flex;gap:.58rem;margin-top:.58rem}
-.stat-box{flex:1;background:var(--surf);border:1px solid var(--border);border-radius:6px;padding:.62rem .5rem;text-align:center}
-.stat-n{font-family:var(--fd);font-size:1.45rem;font-weight:800;color:var(--blue);line-height:1}
-.stat-l{font-family:var(--fm);font-size:.57rem;color:var(--ink3);letter-spacing:.07em;margin-top:.2rem}
-
-/* scroll cue */
-.scroll-cue{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.4rem;color:var(--ink3);font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;z-index:2}
-.scroll-line{width:1px;height:36px;background:linear-gradient(var(--blue),transparent);animation:drop-line 2.2s ease-in-out infinite}
-@keyframes drop-line{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.35);opacity:.2}}
-
-/* ─────────────────────────────────────────
-   ABOUT
-───────────────────────────────────────── */
-.about-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:4.5rem;align-items:start}
-.about-lead{font-size:1.08rem;line-height:1.85;color:rgba(236,238,246,.88);margin-bottom:1.2rem}
-.about-body p{color:var(--ink2);line-height:1.88;margin-bottom:.95rem}
-.about-body p strong{color:var(--ink)}
-.pillars-label{font-family:var(--fm);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);margin:1.9rem 0 .8rem}
-.pillars{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
-.pillar{display:flex;align-items:flex-start;gap:.6rem;background:var(--surf);border:1px solid var(--border);border-radius:6px;padding:.76rem .9rem;transition:border-color .2s,background .2s}
-.pillar:hover{border-color:var(--blue);background:var(--raise)}
-.p-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:.42rem}
-.p-text{font-family:var(--fd);font-size:.81rem;font-weight:500}
-
-/* detail card sidebar */
-.d-card{background:var(--surf);border:1px solid var(--border);border-radius:9px;overflow:hidden;margin-bottom:.88rem}
-.d-head{background:var(--raise);padding:.6rem 1rem;font-family:var(--fm);font-size:.63rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--border)}
-.d-row{display:flex;align-items:center;gap:.72rem;padding:.66rem 1rem;border-bottom:1px solid var(--border)}
-.d-row:last-child{border-bottom:none}
-.d-ico{font-size:.86rem;flex-shrink:0}
-.d-txt strong{display:block;color:var(--ink);font-family:var(--fd);font-size:.83rem;font-weight:600}
-.d-txt small{color:var(--ink3);font-family:var(--fm);font-size:.67rem}
-.d-txt a{color:var(--blue)}
-.d-txt a:hover{text-decoration:underline}
-
-/* ─────────────────────────────────────────
-   PUBLICATIONS
-───────────────────────────────────────── */
-.pub-header{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1.4rem;margin-bottom:2.4rem}
-.pub-filters{display:flex;gap:.44rem;flex-wrap:wrap;margin-top:.44rem}
-.pf-btn{font-family:var(--fm);font-size:.67rem;letter-spacing:.06em;padding:.28rem .8rem;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--ink2);cursor:pointer;transition:all .18s}
-.pf-btn.on,.pf-btn:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-a)}
-.scholar-link{font-family:var(--fm);font-size:.67rem;color:var(--blue);display:flex;align-items:center;gap:.3rem;padding:.3rem .7rem;border:1px solid rgba(77,156,248,.25);border-radius:4px;transition:background .15s;white-space:nowrap}
-.scholar-link:hover{background:var(--blue-a)}
-
-.pub-list{display:flex;flex-direction:column;gap:.95rem}
-.pub-card{background:var(--surf);border:1px solid var(--border);border-radius:9px;padding:1.6rem 1.8rem;display:grid;grid-template-columns:1fr auto;gap:1.4rem;align-items:start;position:relative;overflow:hidden;transition:border-color .25s,transform .25s,box-shadow .25s}
-.pub-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--blue),var(--cyan));transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease)}
-.pub-card:hover{border-color:var(--border-b);transform:translateX(5px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
-.pub-card:hover::before{transform:scaleY(1)}
-.pub-top{display:flex;align-items:center;gap:.48rem;margin-bottom:.5rem}
-.pub-yr{font-family:var(--fm);font-size:.64rem;background:var(--blue-a);color:var(--blue);padding:.15rem .5rem;border-radius:3px;letter-spacing:.06em}
-.pub-type{font-family:var(--fm);font-size:.62rem;padding:.13rem .42rem;border-radius:2px;letter-spacing:.04em}
-.pub-type.j{background:var(--cyan-a);color:var(--cyan);border:1px solid rgba(53,212,240,.2)}
-.pub-type.c{background:var(--gold-a);color:var(--gold);border:1px solid rgba(224,168,53,.2)}
-.pub-title{font-family:var(--fd);font-size:1.04rem;font-weight:700;line-height:1.3;margin-bottom:.35rem;color:var(--ink)}
-.pub-venue{font-size:.82rem;color:var(--ink2);font-style:italic;margin-bottom:.6rem}
-.pub-tags{display:flex;flex-wrap:wrap;gap:.37rem}
-.pub-actions{display:flex;flex-direction:column;gap:.44rem;align-items:flex-end}
-.pub-link{font-family:var(--fm);font-size:.67rem;color:var(--blue);border:1px solid rgba(77,156,248,.22);padding:.24rem .6rem;border-radius:3px;white-space:nowrap;transition:background .15s}
-.pub-link:hover{background:var(--blue-a)}
-
-/* ─────────────────────────────────────────
-   TEACHING
-───────────────────────────────────────── */
-.courses-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:1.1rem}
-.course-card{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:1.8rem;position:relative;overflow:hidden;transition:border-color .25s,transform .28s}
-.course-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2.5px;background:linear-gradient(90deg,var(--blue),var(--cyan));transform:scaleX(0);transform-origin:left;transition:transform .38s var(--ease)}
-.course-card:hover{border-color:var(--border-b);transform:translateY(-4px)}
-.course-card:hover::after{transform:scaleX(1)}
-.course-code{font-family:var(--fm);font-size:.65rem;letter-spacing:.1em;color:var(--gold);margin-bottom:.5rem}
-.course-name{font-family:var(--fd);font-size:1.12rem;font-weight:700;margin-bottom:.6rem;line-height:1.25}
-.course-desc{font-size:.84rem;color:var(--ink2);line-height:1.7}
-.course-foot{display:flex;justify-content:space-between;align-items:center;margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--border);font-family:var(--fm);font-size:.64rem;color:var(--ink3)}
-.lv-dot{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:.32rem}
-
-.sup-box{margin-top:2.2rem;background:var(--raise);border:1px solid var(--border);border-radius:8px;padding:1.65rem 1.85rem;display:flex;gap:1.4rem;align-items:flex-start}
-.sup-ico{font-size:1.7rem;flex-shrink:0}
-.sup-body p{font-size:.88rem;color:var(--ink2);line-height:1.75;margin-bottom:.9rem}
-
-/* ─────────────────────────────────────────
-   INDUSTRY / EXPERIENCE
-───────────────────────────────────────── */
-.exp-list{display:flex;flex-direction:column;gap:1rem}
-.exp-card{background:var(--surf);border:1px solid var(--border);border-radius:9px;padding:1.6rem 1.8rem;display:grid;grid-template-columns:50px 1fr;gap:1.25rem;align-items:start;transition:border-color .22s}
-.exp-card:hover{border-color:var(--border-b)}
-.exp-card.gold{border-color:var(--border-g)}
-.exp-card.gold:hover{border-color:var(--gold)}
-.exp-logo{width:42px;height:42px;border-radius:8px;background:var(--raise);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.25rem;flex-shrink:0}
-.exp-role{font-family:var(--fd);font-size:1rem;font-weight:700;margin-bottom:.18rem}
-.exp-org{font-family:var(--fm);font-size:.7rem;color:var(--blue);margin-bottom:.14rem}
-.exp-period{font-family:var(--fm);font-size:.66rem;color:var(--ink3);margin-bottom:.58rem}
-.exp-desc{font-size:.86rem;color:var(--ink2);line-height:1.75}
-.exp-desc em{color:var(--ink);font-style:italic}
-.exp-tags{display:flex;flex-wrap:wrap;gap:.37rem;margin-top:.68rem}
-
-/* ─────────────────────────────────────────
-   WRITING
-───────────────────────────────────────── */
-.writing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(278px,1fr));gap:1.1rem}
-.writing-card{background:var(--layer);border:1px solid var(--border);border-radius:10px;padding:1.8rem;display:flex;flex-direction:column;position:relative;overflow:hidden;transition:border-color .22s}
-.writing-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 15% 15%,rgba(77,156,248,.04),transparent 55%);pointer-events:none}
-.writing-card:hover{border-color:var(--border-b)}
-.w-cat{font-family:var(--fm);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:.7rem}
-.w-title{font-family:var(--fd);font-size:1.08rem;font-weight:700;line-height:1.32;margin-bottom:.7rem}
-.w-excerpt{font-size:.85rem;color:var(--ink2);line-height:1.75;flex:1;font-style:italic}
-.w-foot{display:flex;justify-content:space-between;align-items:center;margin-top:1.1rem;padding-top:.9rem;border-top:1px solid var(--border)}
-.w-date{font-family:var(--fm);font-size:.64rem;color:var(--ink3)}
-.w-read{font-family:var(--fm);font-size:.66rem;color:var(--blue)}
-.w-read:hover{text-decoration:underline}
-
-/* ─────────────────────────────────────────
-   CV
-───────────────────────────────────────── */
-.cv-cols{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
-.cv-block{margin-bottom:2.5rem}
-.cv-block-title{font-family:var(--fm);font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:1.15rem;display:flex;align-items:center;gap:.58rem}
-.cv-block-title::after{content:'';flex:1;height:1px;background:var(--border)}
-.cv-entry{display:grid;grid-template-columns:82px 1fr;gap:.85rem;margin-bottom:1.2rem;position:relative}
-.cv-entry+.cv-entry::before{content:'';position:absolute;left:82px;top:-1.2rem;height:1.2rem;width:1px;background:var(--border)}
-.cv-yr{font-family:var(--fm);font-size:.66rem;color:var(--ink3);padding-top:.18rem}
-.cv-body{padding-left:.92rem;border-left:2px solid var(--border);transition:border-color .2s}
-.cv-body:hover{border-color:var(--blue)}
-.cv-body strong{font-family:var(--fd);font-size:.92rem;font-weight:600;display:block}
-.cv-body span{font-size:.8rem;color:var(--ink2)}
-.cv-body small{font-family:var(--fm);font-size:.67rem;color:var(--blue);display:block;margin-top:.18rem}
-.cv-skills{display:flex;flex-wrap:wrap;gap:.44rem;margin-top:.44rem}
-
-/* ─────────────────────────────────────────
-   CONTACT
-───────────────────────────────────────── */
-.contact-grid{display:grid;grid-template-columns:1fr 1.12fr;gap:4.5rem}
-.contact-intro{color:var(--ink2);line-height:1.85;margin-bottom:1.85rem}
-.contact-links{display:flex;flex-direction:column;gap:.56rem;margin-bottom:1.85rem}
-.c-link{display:flex;align-items:center;gap:.86rem;background:var(--surf);border:1px solid var(--border);border-radius:7px;padding:.76rem .92rem;transition:all .2s;color:var(--ink)}
-.c-link:hover{border-color:var(--blue);color:var(--blue);background:var(--raise)}
-.c-link:hover .c-ico{border-color:var(--blue)}
-.c-ico{width:31px;height:31px;border-radius:6px;background:var(--raise);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0;transition:border-color .2s}
-.c-info strong{display:block;font-family:var(--fd);font-size:.84rem;font-weight:600}
-.c-info small{font-family:var(--fm);font-size:.65rem;color:var(--ink3)}
-
-/* form */
-.cform{display:flex;flex-direction:column;gap:.86rem}
-.f-row{display:grid;grid-template-columns:1fr 1fr;gap:.86rem}
-.f-grp label{display:block;font-family:var(--fm);font-size:.63rem;letter-spacing:.07em;color:var(--ink3);margin-bottom:.34rem}
-.f-grp input,.f-grp textarea,.f-grp select{width:100%;background:var(--surf);border:1px solid var(--border);color:var(--ink);font-family:var(--fb);font-size:.87rem;padding:.74rem .9rem;border-radius:5px;outline:none;transition:border-color .2s,box-shadow .2s}
-.f-grp input:focus,.f-grp textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-a)}
-.f-grp textarea{min-height:118px;resize:vertical}
-.f-grp select option{background:var(--surf)}
-.f-note{font-family:var(--fm);font-size:.63rem;color:var(--ink3);text-align:center}
-.f-note a{color:var(--blue)}
-
-/* ─────────────────────────────────────────
-   FOOTER
-───────────────────────────────────────── */
-footer{background:var(--void);border-top:1px solid var(--border);padding:3rem 0 1.8rem}
-.footer-grid{max-width:var(--max);margin:0 auto;padding:0 var(--gx);display:grid;grid-template-columns:1.55fr 1fr 1fr;gap:2.8rem;margin-bottom:2.2rem}
-.f-brand{font-family:var(--fd);font-size:1.05rem;font-weight:700;margin-bottom:.65rem}
-.f-brand em{color:var(--blue);font-style:italic}
-.f-tag{font-size:.82rem;color:var(--ink3);line-height:1.7}
-.f-col h4{font-family:var(--fm);font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:.82rem}
-.f-links{list-style:none;display:flex;flex-direction:column;gap:.4rem}
-.f-links a{font-size:.84rem;color:var(--ink2);transition:color .18s}
-.f-links a:hover{color:var(--blue)}
-.footer-bottom{max-width:var(--max);margin:0 auto;padding:1.25rem var(--gx) 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-family:var(--fm);font-size:.67rem;color:var(--ink3);flex-wrap:wrap;gap:.45rem}
-.footer-bottom a{color:var(--blue)}
-
-/* ─────────────────────────────────────────
-   SCROLL REVEAL
-───────────────────────────────────────── */
-.rv{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.rv.in{opacity:1;transform:none}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
-
-/* ─────────────────────────────────────────
-   RESPONSIVE
-───────────────────────────────────────── */
-@media(max-width:1040px){
-  :root{--gx:5%}
-  #hero{grid-template-columns:1fr}
-  .hero-right{display:none}
-  .about-grid{grid-template-columns:1fr;gap:2.5rem}
-  .pillars{grid-template-columns:1fr}
-  .cv-cols{grid-template-columns:1fr;gap:2rem}
-  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
-  .footer-grid{grid-template-columns:1fr 1fr}
-}
-@media(max-width:760px){
-  :root{--gx:5%}
+@media(max-width:768px){
   .nav-links,.nav-end{display:none}
   .ham{display:flex}
-  #hero{padding:72px 0 4rem}
-  section{padding:4.8rem 0}
-  .f-row{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr;gap:1.8rem}
-  .pub-card{grid-template-columns:1fr}
-  .pub-actions{flex-direction:row}
-  .exp-card{grid-template-columns:1fr}
+  h2{font-size:1.75rem}
 }
+
+/* Hero */
+#hero{min-height:100vh;padding-top:var(--nav);display:grid;grid-template-columns:1fr 1fr;align-items:center;background:var(--void);overflow:hidden}
+#hero::before{content:'';position:absolute;right:-5%;top:5%;width:55vw;height:80vh;background:radial-gradient(ellipse at 60% 50%,rgba(77,156,248,.07),transparent 65%);pointer-events:none;z-index:0}
+.hero-l{padding:5% var(--gx);position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center}
+.hero-kicker{font-family:var(--fm);font-size:.67rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:.7rem;margin-bottom:1.5rem}
+.hero-kicker::before{content:'';width:24px;height:1px;background:var(--blue)}
+.hero-name{font-size:clamp(2.8rem,5.5vw,5.5rem);font-weight:800;letter-spacing:-.025em;line-height:1;margin-bottom:.5rem}
+.n1{display:block;color:var(--ink)}
+.n2{display:block;color:var(--blue);font-style:italic}
+.hero-dept{font-family:var(--fm);font-size:.77rem;color:var(--ink2);letter-spacing:.04em;margin-bottom:1.6rem}
+.hero-dept .sep{opacity:.35;margin:0 .5rem}
+.hero-bio{font-size:1rem;line-height:1.88;color:rgba(236,238,246,.72);max-width:460px;margin-bottom:2rem;border-left:2px solid var(--blue);padding-left:1.1rem;font-style:italic}
+.hero-chips{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:2.2rem}
+.hero-btns{display:flex;gap:.9rem;flex-wrap:wrap}
+
+/* Hero right */
+.hero-r{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:3rem 2rem}
+.profile-shell{position:relative;width:295px}
+.profile-wrap{width:240px;height:240px;position:relative;margin:0 auto 1.7rem}
+.profile-circle{width:100%;height:100%;border-radius:50%;background:var(--surf);border:1.5px solid var(--border-b);overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;z-index:2}
+.profile-circle img{width:100%;height:100%;object-fit:cover}
+.ph-inner{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.45rem;padding:1.4rem}
+.ph-icon{font-size:3.2rem;opacity:.15}
+.ph-inner p{font-size:.6rem;color:var(--ink3);font-family:var(--fm);line-height:1.5}
+.ring{position:absolute;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);border:1px dashed}
+.ring-1{width:calc(100% + 34px);height:calc(100% + 34px);border-color:rgba(77,156,248,.18);animation:scw 22s linear infinite}
+.ring-2{width:calc(100% + 62px);height:calc(100% + 62px);border-color:rgba(53,212,240,.07);animation:scc 34s linear infinite}
+@keyframes scw{to{transform:translate(-50%,-50%) rotate(360deg)}}
+@keyframes scc{to{transform:translate(-50%,-50%) rotate(-360deg)}}
+.orb{position:absolute;width:8px;height:8px;border-radius:50%;top:50%;left:50%}
+.o1{background:var(--blue);box-shadow:0 0 10px var(--blue);animation:orb1 7s linear infinite}
+.o2{background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:orb1 7s linear infinite reverse;animation-delay:-3.5s}
+@keyframes orb1{from{transform:translate(-50%,-50%) rotate(0deg) translateX(138px) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(360deg) translateX(138px) rotate(-360deg)}}
+.ic-row{display:flex;flex-direction:column;gap:.55rem}
+.ic-card{background:var(--raise);border:1px solid var(--border);border-radius:7px;padding:.65rem .9rem;display:flex;align-items:center;gap:.7rem;transition:border-color .2s}
+.ic-card:hover{border-color:var(--blue)}
+.ic-ico{font-size:.9rem;flex-shrink:0}
+.ic-body strong{display:block;font-family:var(--fd);font-size:.8rem;font-weight:600}
+.ic-body span{font-size:.67rem;color:var(--ink2);font-family:var(--fm)}
+.ic-body a{color:var(--blue)}
+.ic-body a:hover{text-decoration:underline}
+.stat-row{display:flex;gap:.55rem;margin-top:.55rem}
+.stat-box{flex:1;background:var(--surf);border:1px solid var(--border);border-radius:6px;padding:.58rem .4rem;text-align:center;transition:border-color .2s,box-shadow .2s}
+.stat-box:hover{border-color:var(--blue);box-shadow:0 0 14px var(--blue-g)}
+.stat-n{font-family:var(--fd);font-size:1.35rem;font-weight:800;color:var(--blue);line-height:1}
+.stat-l{font-family:var(--fm);font-size:.56rem;color:var(--ink3);letter-spacing:.07em;margin-top:.18rem}
+.scroll-cue{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.38rem;color:var(--ink3);font-family:var(--fm);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;z-index:2}
+.scroll-line{width:1px;height:34px;background:linear-gradient(var(--blue),transparent);animation:sdrop 2.2s ease-in-out infinite}
+@keyframes sdrop{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.35);opacity:.2}}
+
+/* Dashboard section cards */
+#dashboard{background:var(--layer);padding:5.5rem 0}
+.dash-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.dash-card{background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:2rem;display:flex;flex-direction:column;gap:1rem;position:relative;overflow:hidden;transition:border-color .25s,transform .28s,box-shadow .25s;text-decoration:none;color:var(--ink)}
+.dash-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;transform:scaleX(0);transform-origin:left;transition:transform .38s var(--ease)}
+.dash-card:hover{border-color:var(--border-b);transform:translateY(-5px);box-shadow:0 16px 48px rgba(0,0,0,.35)}
+.dash-card:hover::before{transform:scaleX(1)}
+.dc-blue::before{background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.dc-gold::before{background:linear-gradient(90deg,var(--gold),#f0b84a)}
+.dc-green::before{background:linear-gradient(90deg,var(--green),#5ee8b0)}
+.dc-vio::before{background:linear-gradient(90deg,var(--vio),#c4a0f8)}
+.dc-red::before{background:linear-gradient(90deg,var(--red),#f07070)}
+.dash-icon{font-size:2.2rem;display:block}
+.dash-title{font-family:var(--fd);font-size:1.2rem;font-weight:700;line-height:1.2}
+.dash-desc{font-size:.86rem;color:var(--ink2);line-height:1.72;flex:1}
+.dash-meta{display:flex;align-items:center;justify-content:space-between;margin-top:.5rem}
+.dash-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.dash-arrow{font-family:var(--fm);font-size:.72rem;color:var(--blue);white-space:nowrap;transition:transform .2s}
+.dash-card:hover .dash-arrow{transform:translateX(4px)}
+
+/* About strip */
+#about-strip{background:var(--deep);padding:5rem 0}
+.about-2col{display:grid;grid-template-columns:1.15fr .85fr;gap:4rem;align-items:start}
+.about-lead-text{font-size:1.06rem;line-height:1.88;color:rgba(236,238,246,.82);margin-bottom:1.1rem}
+.about-body p{color:var(--ink2);line-height:1.88;margin-bottom:.9rem}
+.about-body strong{color:var(--ink)}
+.detail-card{background:var(--surf);border:1px solid var(--border);border-radius:9px;overflow:hidden;margin-bottom:.85rem}
+.dc-head{background:var(--raise);padding:.58rem .95rem;font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);border-bottom:1px solid var(--border)}
+.dc-row{display:flex;align-items:center;gap:.7rem;padding:.62rem .95rem;border-bottom:1px solid var(--border)}
+.dc-row:last-child{border-bottom:none}
+.dc-ico{font-size:.85rem;flex-shrink:0}
+.dc-txt strong{display:block;color:var(--ink);font-family:var(--fd);font-size:.82rem;font-weight:600}
+.dc-txt small{color:var(--ink3);font-family:var(--fm);font-size:.66rem}
+.dc-txt a{color:var(--blue)}.dc-txt a:hover{text-decoration:underline}
+
+/* News ticker */
+.news-bar{position:fixed;top:var(--nav);left:0;width:100%;z-index:990;background:rgba(77,156,248,.07);border-bottom:1px solid rgba(77,156,248,.15);height:30px;display:flex;align-items:center;overflow:hidden}
+.news-label{font-family:var(--fm);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;background:var(--blue);color:#fff;padding:.16rem .6rem;flex-shrink:0;margin-right:.7rem}
+.news-track{display:flex;align-items:center;gap:1rem;white-space:nowrap;animation:ticker 30s linear infinite}
+.news-item{font-family:var(--fm);font-size:.64rem;color:var(--ink2)}
+.news-sep{color:var(--ink3);opacity:.4}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+#hero{padding-top:calc(var(--nav) + 30px)}
+
+@media(max-width:1024px){#hero{grid-template-columns:1fr}.hero-r{display:none}.dash-grid{grid-template-columns:1fr 1fr}.about-2col{grid-template-columns:1fr;gap:2.5rem}}
+@media(max-width:640px){.dash-grid{grid-template-columns:1fr}.hero-btns{flex-direction:column}.hero-name{font-size:clamp(2.4rem,8vw,3.5rem)}}
 </style>
 </head>
 <body>
-
-<!-- animated canvas background -->
 <canvas id="bgc" aria-hidden="true"></canvas>
 
-<!-- ════════════════════════════════════
-     NAVIGATION
-════════════════════════════════════ -->
 <nav class="nav" id="mainNav">
   <div class="nav-inner">
-    <a href="#hero" class="brand">
-      <span class="brand-dot"></span>
-      <span>M. A. <em>Radwan</em></span>
-    </a>
-
+    <a href="index.html" class="brand"><span class="brand-dot"></span><span>M. A. <em>Radwan</em></span></a>
     <ul class="nav-links">
-      <li class="nav-item">
-        <span class="nav-link" tabindex="0">About <span class="caret">▾</span></span>
-        <div class="drop">
-          <a class="drop-item" href="#about"><div class="di-icon">👤</div><div class="di-text"><strong>Biography</strong><span>Research background</span></div></a>
-          <a class="drop-item" href="#industry"><div class="di-icon">💼</div><div class="di-text"><strong>Experience</strong><span>Industry &amp; academia</span></div></a>
-          <div class="drop-sep"></div>
-          <a class="drop-item" href="#cv"><div class="di-icon">📄</div><div class="di-text"><strong>Full CV</strong><span>Education &amp; positions</span></div></a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <span class="nav-link" tabindex="0">Research <span class="caret">▾</span></span>
-        <div class="drop">
-          <a class="drop-item" href="#pubs"><div class="di-icon">📰</div><div class="di-text"><strong>Publications</strong><span>5 peer-reviewed papers</span></div></a>
-          <a class="drop-item" href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank"><div class="di-icon">🔬</div><div class="di-text"><strong>Google Scholar</strong><span>Full citation record ↗</span></div></a>
-          <div class="drop-sep"></div>
-          <a class="drop-item" href="#writing"><div class="di-icon">✍️</div><div class="di-text"><strong>Writing &amp; Opinion</strong><span>Essays &amp; commentary</span></div></a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <span class="nav-link" tabindex="0">Teaching <span class="caret">▾</span></span>
-        <div class="drop">
-          <a class="drop-item" href="#teaching"><div class="di-icon">🎓</div><div class="di-text"><strong>Courses</strong><span>UG &amp; graduate</span></div></a>
-          <a class="drop-item" href="#teaching"><div class="di-icon">👥</div><div class="di-text"><strong>Supervision</strong><span>MSc &amp; PhD students</span></div></a>
-        </div>
-      </li>
-      <li class="nav-item"><a class="nav-link" href="#writing">Writing</a></li>
-      <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      <li><a class="nav-link active" href="index.html">Home</a></li>
+      <li><a class="nav-link " href="research.html">Research</a></li>
+      <li><a class="nav-link " href="teaching.html">Teaching</a></li>
+      <li><a class="nav-link " href="experience.html">Experience</a></li>
+      <li><a class="nav-link " href="cv.html">CV</a></li>
+      <li><a class="nav-link " href="contact.html">Contact</a></li>
     </ul>
-
     <div class="nav-end">
-      <a href="https://www.linkedin.com/in/mohamed-a-radwan-8b4334270" target="_blank" class="nav-cta">LinkedIn ↗</a>
+      <a href="contact.html" class="nav-cta">Get in Touch</a>
     </div>
     <button class="ham" id="hamBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
 <div class="mob-nav" id="mobNav">
-  <div class="mob-sect"><a class="mob-title" href="#about">About</a><div class="mob-subs"><a href="#about">Biography</a><a href="#industry">Experience</a><a href="#cv">CV</a></div></div>
-  <div class="mob-sect"><a class="mob-title" href="#pubs">Research</a><div class="mob-subs"><a href="#pubs">Publications</a><a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank">Scholar ↗</a><a href="#writing">Writing</a></div></div>
-  <div class="mob-sect"><a class="mob-title" href="#teaching">Teaching</a><div class="mob-subs"><a href="#teaching">Courses</a><a href="#teaching">Supervision</a></div></div>
-  <div class="mob-sect"><a class="mob-title" href="#contact">Contact</a><div class="mob-subs"><a href="/cdn-cgi/l/email-protection#86ebf4e7e2f1e7e8c6e5f3a8e3e2f3a8e3e1"><span class="__cf_email__" data-cfemail="f39e81929784929db39086dd969786dd9694">[email&#160;protected]</span></a><a href="https://www.linkedin.com/in/mohamed-a-radwan-8b4334270" target="_blank">LinkedIn ↗</a></div></div>
+  <a class="mob-link active" href="index.html">Home</a>
+  <a class="mob-link " href="research.html">Research</a>
+  <a class="mob-link " href="teaching.html">Teaching</a>
+  <a class="mob-link " href="experience.html">Experience</a>
+  <a class="mob-link " href="cv.html">CV</a>
+  <a class="mob-link " href="contact.html">Contact</a>
 </div>
 
-<!-- ════════════════════════════════════
-     HERO
-════════════════════════════════════ -->
+<!-- NEWS TICKER -->
+<div class="news-bar">
+  <span class="news-label">Latest</span>
+  <div class="news-track">
+    <span class="news-item">🎓 Joined Cairo University as Assistant Professor — July 2025</span>
+    <span class="news-sep">·</span>
+    <span class="news-item">📰 5 peer-reviewed publications on Scholar</span>
+    <span class="news-sep">·</span>
+    <span class="news-item">🔬 PhD conferred, The Ohio State University — December 2024</span>
+    <span class="news-sep">·</span>
+    <span class="news-item">💼 Former Graduate Intern at Intel Labs, Hillsboro, Oregon</span>
+    <span class="news-sep">·</span>
+    <span class="news-item">🎓 Joined Cairo University as Assistant Professor — July 2025</span>
+    <span class="news-sep">·</span>
+    <span class="news-item">📰 5 peer-reviewed publications on Scholar</span>
+    <span class="news-sep">·</span>
+    <span class="news-item">🔬 PhD conferred, The Ohio State University — December 2024</span>
+    <span class="news-sep">·</span>
+    <span class="news-item">💼 Former Graduate Intern at Intel Labs, Hillsboro, Oregon</span>
+    <span class="news-sep">·</span>
+  </div>
+</div>
+
+<!-- HERO -->
 <section id="hero">
-  <div class="hero-left wrap">
+  <div class="hero-l wrap">
     <div class="hero-kicker">Assistant Professor · Cairo University · Faculty of Engineering</div>
-    <h1 class="hero-name">
-      <span class="name-1">Mohamed A.</span>
-      <span class="name-2">Radwan</span>
-    </h1>
+    <h1 class="hero-name"><span class="n1">Mohamed A.</span><span class="n2">Radwan</span></h1>
     <p class="hero-dept">Electronics &amp; Electrical Communications<span class="sep">·</span>PhD, The Ohio State University 2024</p>
-    <p class="hero-bio">IC designer and educator specializing in high-speed wireline receivers, SerDes, and power management — from novel DFE structures at OSU to LDOs at Intel Labs and DC-DC converters for NB-IoT.</p>
+    <p class="hero-bio">IC designer and educator specializing in high-speed wireline receivers, SerDes, and power management — from novel DFE structures at OSU to LDOs at Intel Labs.</p>
     <div class="hero-chips">
-      <span class="tag t-b">High-Speed I/O</span>
-      <span class="tag t-b">SerDes · DFE</span>
-      <span class="tag t-c">Power Management</span>
-      <span class="tag t-g">Analog IC Design</span>
-      <span class="tag t-n">Mixed-Signal</span>
-      <span class="tag">PCB Design</span>
+      <span class="tag t-b">High-Speed I/O</span><span class="tag t-b">SerDes · DFE</span>
+      <span class="tag t-c">Power Management</span><span class="tag t-g">Analog IC</span>
+      <span class="tag t-n">Mixed-Signal</span><span class="tag">PCB Design</span>
     </div>
     <div class="hero-btns">
-      <a href="#pubs" class="btn btn-blue">View Publications <span class="x">→</span></a>
-      <a href="#contact" class="btn btn-out">Contact Me <span class="x">↗</span></a>
+      <a href="research.html" class="btn btn-blue">View Research <span class="x">→</span></a>
+      <a href="contact.html" class="btn btn-out">Contact Me <span class="x">↗</span></a>
     </div>
   </div>
-
-  <div class="hero-right">
+  <div class="hero-r">
     <div class="profile-shell">
       <div class="profile-wrap">
-        <div class="ring ring-1"></div>
-        <div class="ring ring-2"></div>
+        <div class="ring ring-1"></div><div class="ring ring-2"></div>
         <div class="profile-circle">
-          <!-- TO ADD PHOTO: replace the div below with <img src="photo.jpg" alt="Mohamed A. Radwan"/> -->
-          <div class="ph-inner">
-            <div class="ph-icon">👤</div>
-            <p>Add your photo<br>Replace with &lt;img&gt; tag</p>
-          </div>
+          <!-- Replace with: <img src="photo.jpg" alt="Mohamed A. Radwan"/> -->
+          <div class="ph-inner"><div class="ph-icon">👤</div><p>Add your photo<br>Replace with &lt;img&gt;</p></div>
         </div>
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
+        <div class="orb o1"></div><div class="orb o2"></div>
       </div>
-      <div class="info-cards">
-        <div class="info-card"><div class="ic-ico">🏛</div><div class="ic-body"><strong>Cairo University</strong><span>Faculty of Engineering · Giza, Egypt</span></div></div>
-        <div class="info-card"><div class="ic-ico">🎓</div><div class="ic-body"><strong>PhD — The Ohio State University</strong><span>Electrical &amp; Computer Engineering · 2024</span></div></div>
-        <div class="info-card"><div class="ic-ico">✉️</div><div class="ic-body"><strong><a href="/cdn-cgi/l/email-protection#b8d5cad9dccfd9d6f8dbcd96dddccd96dddf"><span class="__cf_email__" data-cfemail="2f425d4e4b584e416f4c5a014a4b5a014a48">[email&#160;protected]</span></a></strong><span>University email</span></div></div>
+      <div class="ic-row">
+        <div class="ic-card"><div class="ic-ico">🏛</div><div class="ic-body"><strong>Cairo University</strong><span>Faculty of Engineering · Giza, Egypt</span></div></div>
+        <div class="ic-card"><div class="ic-ico">🎓</div><div class="ic-body"><strong>PhD — Ohio State University</strong><span>Electrical &amp; Computer Engineering · 2024</span></div></div>
+        <div class="ic-card"><div class="ic-ico">✉️</div><div class="ic-body"><strong><a href="mailto:mradwan@cu.edu.eg">mradwan@cu.edu.eg</a></strong><span>University email</span></div></div>
       </div>
       <div class="stat-row">
-        <div class="stat-box"><div class="stat-n" data-count="5">0</div><div class="stat-l">Publications</div></div>
+        <div class="stat-box"><div class="stat-n" data-count="5">0</div><div class="stat-l">Papers</div></div>
         <div class="stat-box"><div class="stat-n" data-count="16" data-suf="+">0</div><div class="stat-l">Citations</div></div>
         <div class="stat-box"><div class="stat-n" data-count="3" data-suf="+ yrs">0</div><div class="stat-l">Industry</div></div>
       </div>
     </div>
   </div>
-  <div class="scroll-cue" aria-hidden="true"><div class="scroll-line"></div><span>Scroll</span></div>
+  <div class="scroll-cue"><div class="scroll-line"></div><span>Scroll</span></div>
 </section>
 
-<!-- ════════════════════════════════════
-     ABOUT
-════════════════════════════════════ -->
-<section id="about">
+<!-- DASHBOARD NAV CARDS -->
+<section id="dashboard">
   <div class="wrap">
-    <div class="about-grid">
+    <div class="sec-head rv">
+      <div class="eyebrow">Explore</div>
+      <h2>Site <strong>Overview</strong></h2>
+      <p class="sec-sub">Navigate to any section — each has its full detailed content.</p>
+    </div>
+    <div class="dash-grid">
+      <a href="research.html" class="dash-card dc-blue rv">
+        <span class="dash-icon">🔬</span>
+        <div class="dash-title">Research &amp; Publications</div>
+        <p class="dash-desc">5 peer-reviewed papers on speculative DFE, optical receivers, baud-rate CDR, and DC-DC power management. Plus upcoming writing &amp; essays.</p>
+        <div class="dash-meta">
+          <div class="dash-tags"><span class="tag t-b">DFE</span><span class="tag t-b">SerDes</span><span class="tag t-c">Optical Rx</span></div>
+          <span class="dash-arrow">View all →</span>
+        </div>
+      </a>
+      <a href="teaching.html" class="dash-card dc-gold rv d1">
+        <span class="dash-icon">🎓</span>
+        <div class="dash-title">Teaching &amp; Supervision</div>
+        <p class="dash-desc">4 courses at Cairo University covering electronics fundamentals through graduate-level high-speed I/O and power management IC design.</p>
+        <div class="dash-meta">
+          <div class="dash-tags"><span class="tag t-g">4 Courses</span><span class="tag">MSc/PhD</span></div>
+          <span class="dash-arrow">View courses →</span>
+        </div>
+      </a>
+      <a href="experience.html" class="dash-card dc-green rv d2">
+        <span class="dash-icon">💼</span>
+        <div class="dash-title">Industry Experience</div>
+        <p class="dash-desc">3+ years at Vidatronic designing production power management IPs, a summer internship at Intel Labs, and academic roles at OSU and Cairo University.</p>
+        <div class="dash-meta">
+          <div class="dash-tags"><span class="tag t-n">Intel</span><span class="tag t-n">Vidatronic</span></div>
+          <span class="dash-arrow">Full timeline →</span>
+        </div>
+      </a>
+      <a href="cv.html" class="dash-card dc-vio rv d3">
+        <span class="dash-icon">📄</span>
+        <div class="dash-title">Curriculum Vitae</div>
+        <p class="dash-desc">Complete academic record: three degrees from Cairo University and OSU, all positions, publications, and skills — plus CV PDF download.</p>
+        <div class="dash-meta">
+          <div class="dash-tags"><span class="tag t-v">PhD 2024</span><span class="tag t-v">BSc–MSc–PhD</span></div>
+          <span class="dash-arrow">Open CV →</span>
+        </div>
+      </a>
+      <a href="contact.html" class="dash-card dc-red rv d4">
+        <span class="dash-icon">✉️</span>
+        <div class="dash-title">Contact &amp; Collaborate</div>
+        <p class="dash-desc">Reach out for research collaboration, graduate supervision enquiries, course questions, or media. I aim to reply within a few days.</p>
+        <div class="dash-meta">
+          <div class="dash-tags"><span class="tag">Research</span><span class="tag">MSc/PhD</span></div>
+          <span class="dash-arrow">Get in touch →</span>
+        </div>
+      </a>
+      <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="dash-card dc-blue rv d5">
+        <span class="dash-icon">📊</span>
+        <div class="dash-title">Google Scholar</div>
+        <p class="dash-desc">Full citation record, h-index, and publication history on Google Scholar. 16+ citations across 5 peer-reviewed works.</p>
+        <div class="dash-meta">
+          <div class="dash-tags"><span class="tag t-b">16+ Citations</span></div>
+          <span class="dash-arrow">Open Scholar ↗</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<section id="about-strip">
+  <div class="wrap">
+    <div class="about-2col">
       <div class="rv">
         <div class="sec-head">
           <div class="eyebrow">About</div>
-          <h2>Research &amp; <strong>Background</strong></h2>
-          <p class="sec-sub">IC designer, educator, and PhD graduate of The Ohio State University.</p>
+          <h2>Brief <strong>Introduction</strong></h2>
         </div>
-        <p class="about-lead">I am an Assistant Professor in the Department of Electronics and Electrical Communications at Cairo University's Faculty of Engineering, where I joined in July 2025 after completing my PhD at The Ohio State University.</p>
+        <p class="about-lead-text">I am an Assistant Professor in the Department of Electronics and Electrical Communications at Cairo University's Faculty of Engineering, where I joined in July 2025 after completing my PhD at The Ohio State University.</p>
         <div class="about-body">
-          <p>My doctoral research at OSU (2020–2024) focused on <strong>novel Decision Feedback Equalizer (DFE) structures for wireline and optical receivers</strong>. I developed reconfigurable multi-stage PAM-N DFEs with multi-tap speculation at linear (not exponential) hardware complexity, enabling energy-proportional high-speed data transfer.</p>
-          <p>My MSc at Cairo University (2017–2020) covered <strong>power management IC design</strong> — specifically a low-ripple hybrid switched-capacitor DC-DC buck converter for NB-IoT. My BSc project (2016) was a low-power programmable frequency divider for a sub-GHz integer PLL.</p>
-          <p>In industry, I interned at <strong>Intel Labs</strong> (Summer 2022), designing a scalable high-PSR capacitor-less mixed-mode LDO. Before that, I spent 3+ years as an IC Design Engineer at <strong>Vidatronic Inc.</strong> developing production power management IPs: LDOs, reference circuits, and DC-DC converters.</p>
+          <p>My doctoral research at OSU (2020–2024) focused on <strong>novel Decision Feedback Equalizer (DFE) structures for wireline and optical receivers</strong> — reconfigurable multi-stage PAM-N DFEs with linear hardware complexity for energy-proportional data transfer.</p>
+          <p>Before academia, I spent 3+ years designing production power management IPs at <strong>Vidatronic Inc.</strong> and interned at <strong>Intel Labs</strong> in 2022, working on a scalable high-PSR capacitor-less LDO.</p>
         </div>
-        <div class="pillars-label">Primary Research Areas</div>
-        <div class="pillars">
-          <div class="pillar"><div class="p-dot" style="background:var(--blue)"></div><div class="p-text">High-Speed Wireline Receivers &amp; SerDes</div></div>
-          <div class="pillar"><div class="p-dot" style="background:var(--cyan)"></div><div class="p-text">Decision Feedback Equalizers (DFE)</div></div>
-          <div class="pillar"><div class="p-dot" style="background:var(--gold)"></div><div class="p-text">Power Management ICs (LDO, DC-DC)</div></div>
-          <div class="pillar"><div class="p-dot" style="background:var(--green)"></div><div class="p-text">Mixed-Signal IC Design</div></div>
-          <div class="pillar"><div class="p-dot" style="background:var(--vio)"></div><div class="p-text">Signal Integrity &amp; Equalization</div></div>
-          <div class="pillar"><div class="p-dot" style="background:var(--red)"></div><div class="p-text">Clock &amp; Data Recovery (CDR)</div></div>
-        </div>
+        <div style="margin-top:1.8rem"><a href="cv.html" class="btn btn-out btn-sm">Full CV &amp; Academic Record <span class="x">→</span></a></div>
       </div>
       <div class="rv d1">
-        <div class="d-card">
-          <div class="d-head">Contact &amp; Links</div>
-          <div class="d-row"><div class="d-ico">🏛</div><div class="d-txt"><strong>Cairo University</strong><small>Faculty of Engineering · Giza 12613, Egypt</small></div></div>
-          <div class="d-row"><div class="d-ico">📧</div><div class="d-txt"><strong><a href="/cdn-cgi/l/email-protection#caa7b8abaebdaba48aa9bfe4afaebfe4afad"><span class="__cf_email__" data-cfemail="046976656073656a4467712a6160712a6163">[email&#160;protected]</span></a></strong><small>University email</small></div></div>
-          <div class="d-row"><div class="d-ico">🎓</div><div class="d-txt"><strong><a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank">Google Scholar ↗</a></strong><small>Publications &amp; citations</small></div></div>
-          <div class="d-row"><div class="d-ico">💼</div><div class="d-txt"><strong><a href="https://www.linkedin.com/in/mohamed-a-radwan-8b4334270" target="_blank">LinkedIn ↗</a></strong><small>Professional profile</small></div></div>
-          <div class="d-row"><div class="d-ico">🏫</div><div class="d-txt"><strong><a href="https://scholar.cu.edu.eg/?q=mradwan" target="_blank">CU Scholar Page ↗</a></strong><small>scholar.cu.edu.eg</small></div></div>
+        <div class="detail-card">
+          <div class="dc-head">Quick Links</div>
+          <div class="dc-row"><div class="dc-ico">📧</div><div class="dc-txt"><strong><a href="mailto:mradwan@cu.edu.eg">mradwan@cu.edu.eg</a></strong><small>University email</small></div></div>
+          <div class="dc-row"><div class="dc-ico">🎓</div><div class="dc-txt"><strong><a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank">Google Scholar ↗</a></strong><small>Publications &amp; citations</small></div></div>
+          <div class="dc-row"><div class="dc-ico">💼</div><div class="dc-txt"><strong><a href="https://www.linkedin.com/in/mohamed-a-radwan-8b4334270" target="_blank">LinkedIn ↗</a></strong><small>Professional profile</small></div></div>
+          <div class="dc-row"><div class="dc-ico">🏫</div><div class="dc-txt"><strong><a href="https://scholar.cu.edu.eg/?q=mradwan" target="_blank">CU Scholar ↗</a></strong><small>Cairo University profile</small></div></div>
         </div>
-        <div class="d-card">
-          <div class="d-head">Top Skills</div>
-          <div class="d-row"><div class="d-ico">🔧</div><div class="d-txt"><strong>Cadence Virtuoso</strong><small>Analog IC design &amp; simulation</small></div></div>
-          <div class="d-row"><div class="d-ico">🖥️</div><div class="d-txt"><strong>PCB Design</strong><small>Printed circuit board layout</small></div></div>
-          <div class="d-row"><div class="d-ico">⚡</div><div class="d-txt"><strong>Mixed-Signal IC Design</strong><small>Top LinkedIn endorsed skill</small></div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════
-     PUBLICATIONS
-════════════════════════════════════ -->
-<section id="pubs">
-  <div class="wrap">
-    <div class="pub-header rv">
-      <div>
-        <div class="eyebrow">Scholarship</div>
-        <h2>Publications &amp; <strong>Research</strong></h2>
-        <p class="sec-sub">5 peer-reviewed papers on DFE, optical receivers, and power management.</p>
-        <div class="pub-filters">
-          <button class="pf-btn on" data-f="all">All</button>
-          <button class="pf-btn" data-f="io">High-Speed I/O</button>
-          <button class="pf-btn" data-f="opt">Optical Rx</button>
-          <button class="pf-btn" data-f="pow">Power Mgmt</button>
-        </div>
-      </div>
-      <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="scholar-link">Full record on Google Scholar ↗</a>
-    </div>
-    <div class="pub-list">
-      <div class="pub-card rv" data-cat="io opt">
-        <div>
-          <div class="pub-top"><span class="pub-yr">2024</span><span class="pub-type j">Journal/Conf</span></div>
-          <div class="pub-title">Multi-Stage Speculative PAM4 Decision Feedback Equalizer for Short-Reach Applications</div>
-          <div class="pub-venue">PhD Research · The Ohio State University</div>
-          <div class="pub-tags"><span class="tag t-b">PAM4</span><span class="tag t-b">DFE</span><span class="tag t-b">Multi-Tap Speculation</span><span class="tag t-c">Wireline Rx</span></div>
-        </div>
-        <div class="pub-actions"><a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a></div>
-      </div>
-      <div class="pub-card rv d1" data-cat="io opt">
-        <div>
-          <div class="pub-top"><span class="pub-yr">2023</span><span class="pub-type j">Journal</span></div>
-          <div class="pub-title">Hybrid Timing Error Detector for Baud-Rate Multilevel Clock and Data Recovery</div>
-          <div class="pub-venue">IEEE Transactions on Circuits and Systems (or related IEEE venue)</div>
-          <div class="pub-tags"><span class="tag t-b">CDR</span><span class="tag t-b">Baud-Rate</span><span class="tag t-c">PAM-N</span><span class="tag">Timing Error Detector</span></div>
-        </div>
-        <div class="pub-actions"><a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a></div>
-      </div>
-      <div class="pub-card rv d2" data-cat="opt">
-        <div>
-          <div class="pub-top"><span class="pub-yr">2023</span><span class="pub-type c">Conference</span></div>
-          <div class="pub-title">Characterization of Sub-Nyquist TIA with Equalization in Optical Receivers</div>
-          <div class="pub-venue">IEEE ISCAS or related venue</div>
-          <div class="pub-tags"><span class="tag t-c">Optical Rx</span><span class="tag t-c">TIA</span><span class="tag t-b">Equalization</span><span class="tag">Sub-Nyquist</span></div>
-        </div>
-        <div class="pub-actions"><a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a></div>
-      </div>
-      <div class="pub-card rv" data-cat="opt io">
-        <div>
-          <div class="pub-top"><span class="pub-yr">2022</span><span class="pub-type c">Conference</span></div>
-          <div class="pub-title">Time-Based Optical Receiver Featuring a Linear Current-to-Time Conversion with Equalization</div>
-          <div class="pub-venue">IEEE Optical Fiber Communications or related venue</div>
-          <div class="pub-tags"><span class="tag t-c">Optical Rx</span><span class="tag t-b">Time-Based</span><span class="tag t-b">Current-to-Time</span><span class="tag">Equalization</span></div>
-        </div>
-        <div class="pub-actions"><a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a></div>
-      </div>
-      <div class="pub-card rv d1" data-cat="pow">
-        <div>
-          <div class="pub-top"><span class="pub-yr">2020</span><span class="pub-type j">Journal</span></div>
-          <div class="pub-title">Dual-Loop Regulated Switched Capacitor DC-DC Converter</div>
-          <div class="pub-venue">MSc Research · Cairo University · NB-IoT Power Management</div>
-          <div class="pub-tags"><span class="tag t-g">DC-DC</span><span class="tag t-g">Switched Capacitor</span><span class="tag t-g">NB-IoT</span><span class="tag">Dual-Loop</span></div>
-        </div>
-        <div class="pub-actions"><a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a></div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:2.8rem" class="rv">
-      <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="btn btn-out">View All on Google Scholar <span class="x">↗</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════
-     TEACHING
-════════════════════════════════════ -->
-<section id="teaching">
-  <div class="wrap">
-    <div class="sec-head rv"><div class="eyebrow">Teaching</div><h2>Courses &amp; <strong>Supervision</strong></h2><p class="sec-sub">Undergraduate and graduate courses at Cairo University's Faculty of Engineering.</p></div>
-    <div class="courses-grid">
-      <div class="course-card rv"><div class="course-code">EEC 301 · UNDERGRADUATE · 3CR</div><div class="course-name">Electronics I</div><p class="course-desc">Fundamentals of electronic devices — p-n junctions, BJTs, FETs, biasing, small-signal models, and amplifier design. Lab sessions with SPICE simulation.</p><div class="course-foot"><div><span class="lv-dot" style="background:var(--gold)"></span>Undergraduate</div><span>Fall</span></div></div>
-      <div class="course-card rv d1"><div class="course-code">EEC 415 · UNDERGRADUATE · 3CR</div><div class="course-name">Analog Integrated Circuits</div><p class="course-desc">CMOS differential pairs, current mirrors, op-amps, comparators, bandgap references, and data converters. IC design with Cadence Virtuoso.</p><div class="course-foot"><div><span class="lv-dot" style="background:var(--gold)"></span>Undergraduate</div><span>Spring</span></div></div>
-      <div class="course-card rv d2"><div class="course-code">EEC 501 · GRADUATE · 3CR</div><div class="course-name">High-Speed I/O Interface Design</div><p class="course-desc">SerDes architecture, CTLE/FFE/DFE equalization, CDR, jitter, and signal integrity for 10–112 Gbps serial links. Directly informed by OSU doctoral research.</p><div class="course-foot"><div><span class="lv-dot" style="background:var(--blue)"></span>Graduate</div><span>Fall</span></div></div>
-      <div class="course-card rv d3"><div class="course-code">EEC 510 · GRADUATE · 3CR</div><div class="course-name">Power Management IC Design</div><p class="course-desc">LDO and switching regulators, DC-DC topologies, control loop design, and power integrity for IoT and SoC applications. Draws on Vidatronic and Intel LDO experience.</p><div class="course-foot"><div><span class="lv-dot" style="background:var(--blue)"></span>Graduate</div><span>Spring</span></div></div>
-    </div>
-    <div class="sup-box rv">
-      <div class="sup-ico">👥</div>
-      <div>
-        <h3 style="margin-bottom:.45rem">Graduate Supervision</h3>
-        <p class="sup-body p">I actively supervise MSc and PhD students in high-speed serial links, analog IC design, and power management. If you are interested in graduate research, please get in touch with your background and area of interest.</p>
-        <a href="#contact" class="btn btn-out btn-sm">Enquire About Research →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════
-     INDUSTRY EXPERIENCE
-════════════════════════════════════ -->
-<section id="industry">
-  <div class="wrap">
-    <div class="sec-head rv"><div class="eyebrow">Career</div><h2>Industry <strong>Experience</strong></h2><p class="sec-sub">3+ years designing production power management IPs, plus an internship at Intel Labs.</p></div>
-    <div class="exp-list">
-      <div class="exp-card rv"><div class="exp-logo">🏛</div><div><div class="exp-role">Assistant Professor</div><div class="exp-org">Cairo University · Faculty of Engineering</div><div class="exp-period">July 2025 – Present · Giza, Egypt</div><p class="exp-desc">Teaching undergraduate and graduate courses in electronics and IC design. Conducting research in high-speed I/O and power management. Supervising MSc and PhD students.</p><div class="exp-tags"><span class="tag t-b">High-Speed I/O</span><span class="tag t-g">Power Management</span><span class="tag">Teaching</span><span class="tag">Research</span></div></div></div>
-      <div class="exp-card rv d1"><div class="exp-logo">🎓</div><div><div class="exp-role">PhD Candidate / Graduate Research Assistant</div><div class="exp-org">The Ohio State University</div><div class="exp-period">August 2020 – December 2024 · Columbus, Ohio, USA</div><p class="exp-desc">Thesis: <em>"Novel Speculative Decision Feedback Equalizer Structures for Optical Receivers."</em> Developed reconfigurable multi-stage PAM-N DFEs with multi-tap speculation at linear hardware complexity for energy-proportional data transfer.</p><div class="exp-tags"><span class="tag t-b">DFE</span><span class="tag t-b">PAM4</span><span class="tag t-c">Optical Rx</span><span class="tag">Wireline</span></div></div></div>
-      <div class="exp-card gold rv d2"><div class="exp-logo">🔵</div><div><div class="exp-role">Graduate Technical Intern</div><div class="exp-org">Intel Corporation · Intel Labs</div><div class="exp-period">May 2022 – August 2022 · Hillsboro, Oregon, USA</div><p class="exp-desc">Designed a scalable, high-PSR capacitor-less mixed-mode LDO voltage regulator within Intel Labs' advanced analog research division.</p><div class="exp-tags"><span class="tag t-g">LDO</span><span class="tag t-g">High PSR</span><span class="tag t-g">Capacitor-Less</span><span class="tag">Intel Labs</span></div></div></div>
-      <div class="exp-card rv"><div class="exp-logo">⚡</div><div><div class="exp-role">Senior IC Design Engineer</div><div class="exp-org">Vidatronic, Inc.</div><div class="exp-period">March 2019 – July 2020 · Cairo, Egypt</div><p class="exp-desc">Developed production-ready power management IPs: reference circuits, LDOs, and DC-DC buck/boost converters shipped to clients worldwide.</p><div class="exp-tags"><span class="tag t-g">LDO</span><span class="tag t-g">Buck/Boost</span><span class="tag t-g">Reference Circuits</span><span class="tag">IP Development</span></div></div></div>
-      <div class="exp-card rv d1"><div class="exp-logo">⚡</div><div><div class="exp-role">IC Design Engineer</div><div class="exp-org">Vidatronic, Inc.</div><div class="exp-period">December 2016 – March 2019 · Cairo, Egypt</div><p class="exp-desc">Designed analog and mixed-signal power management circuits, contributing to LDO and switching converter IP libraries for client SoC designs.</p><div class="exp-tags"><span class="tag t-g">Power Management</span><span class="tag">Analog IC</span><span class="tag">Cadence Virtuoso</span></div></div></div>
-      <div class="exp-card rv d2"><div class="exp-logo">📚</div><div><div class="exp-role">Graduate Research &amp; Teaching Assistant</div><div class="exp-org">Cairo University · Faculty of Engineering</div><div class="exp-period">January 2017 – August 2020 · Cairo, Egypt</div><p class="exp-desc">MSc thesis: <em>"DC-DC Converter Design for NB-IoT Applications"</em> — a low-ripple hybrid switched-capacitor buck converter. Assisted in teaching undergraduate electronics courses.</p><div class="exp-tags"><span class="tag t-g">DC-DC</span><span class="tag t-g">NB-IoT</span><span class="tag">Teaching</span><span class="tag">MSc Research</span></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════
-     WRITING
-════════════════════════════════════ -->
-<section id="writing">
-  <div class="wrap">
-    <div class="sec-head rv"><div class="eyebrow">Ideas &amp; Commentary</div><h2>Writing &amp; <strong>Opinion</strong></h2><p class="sec-sub">Technical essays, reflections on engineering education, and semiconductor industry commentary.</p></div>
-    <div class="writing-grid">
-      <div class="writing-card rv"><div class="w-cat">🔗 Technical · High-Speed I/O</div><div class="w-title">Why Speculative DFE Is the Key to Breaking the PAM4 Power Wall</div><p class="w-excerpt">As data rates push toward 112 Gbps, the bottleneck shifts from bandwidth to decision latency. Multi-tap speculation offers a path — but at what silicon cost? A view from OSU research.</p><div class="w-foot"><span class="w-date">Coming Soon</span><a href="#" class="w-read">Read →</a></div></div>
-      <div class="writing-card rv d1"><div class="w-cat">🔋 Opinion · Power Electronics</div><div class="w-title">What I Learned Designing LDOs at Intel That Cairo University Never Taught Me</div><p class="w-excerpt">The gap between academia and advanced IC development is real. After a summer at Intel Labs, I returned with new intuitions about PSR, noise, and what "scalable" truly means in silicon.</p><div class="w-foot"><span class="w-date">Coming Soon</span><a href="#" class="w-read">Read →</a></div></div>
-      <div class="writing-card rv d2"><div class="w-cat">🎓 Teaching · Reflection</div><div class="w-title">Teaching High-Speed IC Design in Egypt: Challenges and a Vision</div><p class="w-excerpt">Egypt has world-class ECE graduates, yet almost no domestic analog/mixed-signal IC design industry. What would it take to change that — and what role can university courses play?</p><div class="w-foot"><span class="w-date">Coming Soon</span><a href="#" class="w-read">Read →</a></div></div>
-      <div class="writing-card rv d3"><div class="w-cat">🌐 Commentary · AI &amp; Chips</div><div class="w-title">The Interconnect Crisis: Why AI Scaling Now Depends on SerDes Engineers</div><p class="w-excerpt">GPU clusters are only as fast as the chips linking them. As AI demands terabit-per-second bandwidth, the spotlight quietly shifts from compute to high-speed I/O.</p><div class="w-foot"><span class="w-date">Coming Soon</span><a href="#" class="w-read">Read →</a></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ════════════════════════════════════
-     CV
-════════════════════════════════════ -->
-<section id="cv">
-  <div class="wrap">
-    <div class="sec-head rv"><div class="eyebrow">Curriculum Vitae</div><h2>Academic <strong>Record</strong></h2></div>
-    <div class="cv-cols">
-      <div>
-        <div class="cv-block">
-          <div class="cv-block-title rv">Education</div>
-          <div class="cv-entry rv"><div class="cv-yr">2020–2024</div><div class="cv-body"><strong>PhD — Electrical &amp; Computer Engineering</strong><span>The Ohio State University · Columbus, Ohio</span><small>Thesis: Novel Speculative DFE Structures for Optical Receivers</small></div></div>
-          <div class="cv-entry rv d1"><div class="cv-yr">2017–2020</div><div class="cv-body"><strong>MSc — Electronics &amp; Communications Engineering</strong><span>Cairo University · Faculty of Engineering</span><small>Thesis: DC-DC Converter Design for NB-IoT Applications</small></div></div>
-          <div class="cv-entry rv d2"><div class="cv-yr">2011–2016</div><div class="cv-body"><strong>BSc — Electronics &amp; Communications Engineering</strong><span>Cairo University · Faculty of Engineering</span><small>Project: Low-Power Programmable Frequency Divider for sub-GHz PLL</small></div></div>
-        </div>
-        <div class="cv-block">
-          <div class="cv-block-title rv">Academic Positions</div>
-          <div class="cv-entry rv"><div class="cv-yr">Jul 2025–</div><div class="cv-body"><strong>Assistant Professor</strong><span>Dept. of Electronics &amp; Electrical Comms · Cairo University</span></div></div>
-          <div class="cv-entry rv d1"><div class="cv-yr">2020–2024</div><div class="cv-body"><strong>PhD Candidate / Graduate Research Assistant</strong><span>The Ohio State University</span></div></div>
-          <div class="cv-entry rv d2"><div class="cv-yr">2017–2020</div><div class="cv-body"><strong>Graduate Research &amp; Teaching Assistant</strong><span>Cairo University · Faculty of Engineering</span></div></div>
-        </div>
-      </div>
-      <div>
-        <div class="cv-block">
-          <div class="cv-block-title rv">Industry</div>
-          <div class="cv-entry rv"><div class="cv-yr">Summer 2022</div><div class="cv-body"><strong>Graduate Technical Intern</strong><span>Intel Corporation · Intel Labs · Hillsboro, OR</span><small>Scalable high-PSR capacitor-less mixed-mode LDO</small></div></div>
-          <div class="cv-entry rv d1"><div class="cv-yr">2016–2020</div><div class="cv-body"><strong>IC Design Engineer → Senior</strong><span>Vidatronic, Inc. · Cairo, Egypt</span><small>LDOs · Switching Converters · Reference Circuits</small></div></div>
-        </div>
-        <div class="cv-block">
-          <div class="cv-block-title rv">Publications (5)</div>
-          <div class="cv-entry rv"><div class="cv-yr">2024</div><div class="cv-body"><strong>Multi-Stage Speculative PAM4 DFE for Short-Reach Apps</strong></div></div>
-          <div class="cv-entry rv d1"><div class="cv-yr">2023</div><div class="cv-body"><strong>Hybrid Timing Error Detector for Baud-Rate Multilevel CDR</strong></div></div>
-          <div class="cv-entry rv d2"><div class="cv-yr">2023</div><div class="cv-body"><strong>Sub-Nyquist TIA with Equalization in Optical Rx</strong></div></div>
-          <div class="cv-entry rv d3"><div class="cv-yr">2022</div><div class="cv-body"><strong>Time-Based Optical Rx with Linear Current-to-Time Conversion</strong></div></div>
-          <div class="cv-entry rv"><div class="cv-yr">2020</div><div class="cv-body"><strong>Dual-Loop Regulated Switched Capacitor DC-DC Converter</strong></div></div>
-        </div>
-        <div class="cv-block">
-          <div class="cv-block-title rv">Skills</div>
-          <div class="cv-skills rv d1">
-            <span class="tag t-b">Cadence Virtuoso</span><span class="tag t-b">SerDes</span><span class="tag t-b">DFE Architecture</span><span class="tag t-c">CDR</span><span class="tag t-g">LDO Design</span><span class="tag t-g">DC-DC Converters</span><span class="tag t-n">Mixed-Signal IC</span><span class="tag t-v">PCB Design</span><span class="tag">Signal Integrity</span>
-          </div>
-        </div>
-        <div class="rv" style="margin-top:1.4rem">
-          <a href="#" class="btn btn-out" onclick="alert('Upload your CV PDF to the repo and update this href to point to cv.pdf');return false">Download Full CV (PDF) <span class="x">↓</span></a>
+        <div class="detail-card">
+          <div class="dc-head">Research Areas</div>
+          <div class="dc-row"><div class="dc-ico">⚡</div><div class="dc-txt"><strong>High-Speed Wireline Rx &amp; SerDes</strong><small>DFE · equalization · CDR · PAM4</small></div></div>
+          <div class="dc-row"><div class="dc-ico">🔋</div><div class="dc-txt"><strong>Power Management IC Design</strong><small>LDO · DC-DC · NB-IoT · reference circuits</small></div></div>
+          <div class="dc-row"><div class="dc-ico">🔬</div><div class="dc-txt"><strong>Mixed-Signal IC Design</strong><small>Cadence Virtuoso · CMOS</small></div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ════════════════════════════════════
-     CONTACT
-════════════════════════════════════ -->
-<section id="contact">
-  <div class="wrap">
-    <div class="sec-head rv"><div class="eyebrow">Get in Touch</div><h2>Contact <strong>Me</strong></h2></div>
-    <div class="contact-grid">
-      <div class="rv">
-        <p class="contact-intro">I welcome messages from students, prospective collaborators, and anyone with questions about high-speed IC design or power management. I aim to reply within a few days.</p>
-        <div class="contact-links">
-          <a href="/cdn-cgi/l/email-protection#4d203f2c293a2c230d2e386328293863282a" class="c-link"><div class="c-ico">✉️</div><div class="c-info"><strong><span class="__cf_email__" data-cfemail="c9a4bba8adbea8a789aabce7acadbce7acae">[email&#160;protected]</span></strong><small>Cairo University official email</small></div></a>
-          <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="c-link"><div class="c-ico">🎓</div><div class="c-info"><strong>Google Scholar</strong><small>Publications &amp; citation record</small></div></a>
-          <a href="https://www.linkedin.com/in/mohamed-a-radwan-8b4334270" target="_blank" class="c-link"><div class="c-ico">💼</div><div class="c-info"><strong>LinkedIn</strong><small>linkedin.com/in/mohamed-a-radwan-8b4334270</small></div></a>
-          <a href="https://scholar.cu.edu.eg/?q=mradwan" target="_blank" class="c-link"><div class="c-ico">🏫</div><div class="c-info"><strong>CU Scholar Page</strong><small>scholar.cu.edu.eg/?q=mradwan</small></div></a>
-          <a href="#" class="c-link"><div class="c-ico">🏛</div><div class="c-info"><strong>Dept. of Electronics &amp; Electrical Communications</strong><small>Cairo University · Faculty of Engineering · Giza, Egypt</small></div></a>
-        </div>
-      </div>
-      <div class="rv d1">
-        <form class="cform" id="cform">
-          <div class="f-row">
-            <div class="f-grp"><label>Name</label><input type="text" placeholder="Full name" required/></div>
-            <div class="f-grp"><label>Email</label><input type="email" placeholder="you@institution.edu" required/></div>
-          </div>
-          <div class="f-grp">
-            <label>Subject</label>
-            <select>
-              <option value="">Select a topic…</option>
-              <option>Research Collaboration</option>
-              <option>Graduate Studies (MSc/PhD)</option>
-              <option>Undergraduate Advising</option>
-              <option>Course Question</option>
-              <option>High-Speed I/O Inquiry</option>
-              <option>Power Management Inquiry</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="f-grp"><label>Affiliation</label><input type="text" placeholder="University / Company / Independent"/></div>
-          <div class="f-grp"><label>Message</label><textarea placeholder="Your message…" required></textarea></div>
-          <button type="submit" class="btn btn-blue" id="sendBtn" style="width:100%">Send Message <span class="x">→</span></button>
-          <p class="f-note">Activate for free via <a href="https://formspree.io" target="_blank">Formspree.io</a></p>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ════════════════════════════════════
-     FOOTER
-════════════════════════════════════ -->
 <footer>
-  <div class="footer-grid">
-    <div>
-      <div class="f-brand">Mohamed A. <em>Radwan</em></div>
-      <p class="f-tag">Assistant Professor · Electronics &amp; Electrical Communications<br>Cairo University · Faculty of Engineering · Giza, Egypt<br>PhD — The Ohio State University, 2024</p>
+  <div class="footer-inner">
+    <div class="footer-brand">Mohamed A. <em>Radwan</em></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="experience.html">Experience</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank">Scholar ↗</a>
+      <a href="https://www.linkedin.com/in/mohamed-a-radwan-8b4334270" target="_blank">LinkedIn ↗</a>
     </div>
-    <div class="f-col">
-      <h4>Navigation</h4>
-      <ul class="f-links"><li><a href="#about">About</a></li><li><a href="#pubs">Research</a></li><li><a href="#teaching">Teaching</a></li><li><a href="#industry">Experience</a></li><li><a href="#writing">Writing</a></li><li><a href="#cv">CV</a></li><li><a href="#contact">Contact</a></li></ul>
+    <div class="footer-copy">
+      <span>© 2025 Mohamed A. Radwan · Cairo University. All rights reserved.</span>
+      <span>Hosted free on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></span>
     </div>
-    <div class="f-col">
-      <h4>External</h4>
-      <ul class="f-links"><li><a href="/cdn-cgi/l/email-protection#1e736c7f7a697f705e7d6b307b7a6b307b79"><span class="__cf_email__" data-cfemail="157867747162747b5576603b7071603b7072">[email&#160;protected]</span></a></li><li><a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank">Google Scholar ↗</a></li><li><a href="https://www.linkedin.com/in/mohamed-a-radwan-8b4334270" target="_blank">LinkedIn ↗</a></li><li><a href="https://scholar.cu.edu.eg/?q=mradwan" target="_blank">CU Scholar ↗</a></li></ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Mohamed A. Radwan · Cairo University. All rights reserved.</span>
-    <span>Hosted free on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></span>
   </div>
 </footer>
-
-<!-- ════════════════════════════════════
-     JAVASCRIPT
-════════════════════════════════════ -->
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
 (function(){
-/* ── 1. Circuit canvas ── */
-var cv=document.getElementById('bgc'),ctx=cv.getContext('2d'),W,H,nodes=[],edges=[];
-function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;build()}
-function build(){
-  nodes=[];edges=[];
-  var c=Math.floor(W/88)+1,r=Math.floor(H/88)+1;
-  for(var i=0;i<c;i++)for(var j=0;j<r;j++)
-    if(Math.random()>.53)nodes.push({x:i*88+(Math.random()-.5)*26,y:j*88+(Math.random()-.5)*26,r:Math.random()*1.7+.7,ph:Math.random()*6.28,sp:.011+Math.random()*.015});
-  for(var a=0;a<nodes.length;a++){
-    var nr=[];
-    for(var b=0;b<nodes.length;b++){if(a===b)continue;var d=Math.hypot(nodes[b].x-nodes[a].x,nodes[b].y-nodes[a].y);if(d<158)nr.push({j:b,d:d})}
-    nr.sort(function(x,y){return x.d-y.d}).slice(0,2).forEach(function(n){
-      var k=[a,n.j].sort().join('-');
-      if(!edges.find(function(e){return e.k===k}))edges.push({k:k,a:a,b:n.j});
-    });
+  /* Canvas */
+  var cv=document.getElementById('bgc');
+  if(cv){
+    var ctx=cv.getContext('2d'),W,H,nodes=[],edges=[];
+    function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;build()}
+    function build(){
+      nodes=[];edges=[];
+      var c=Math.floor(W/92)+1,r=Math.floor(H/92)+1;
+      for(var i=0;i<c;i++)for(var j=0;j<r;j++)
+        if(Math.random()>.54)nodes.push({x:i*92+(Math.random()-.5)*24,y:j*92+(Math.random()-.5)*24,r:Math.random()*1.6+.6,ph:Math.random()*6.28,sp:.01+Math.random()*.014});
+      for(var a=0;a<nodes.length;a++){
+        var nr=[];
+        for(var b=0;b<nodes.length;b++){if(a===b)continue;var d=Math.hypot(nodes[b].x-nodes[a].x,nodes[b].y-nodes[a].y);if(d<150)nr.push({j:b,d:d})}
+        nr.sort(function(x,y){return x.d-y.d}).slice(0,2).forEach(function(n){
+          var k=[a,n.j].sort().join('-');if(!edges.find(function(e){return e.k===k}))edges.push({k:k,a:a,b:n.j});
+        });
+      }
+    }
+    var t=0;
+    function draw(){
+      ctx.clearRect(0,0,W,H);t+=.007;
+      edges.forEach(function(e){var na=nodes[e.a],nb=nodes[e.b];if(!na||!nb)return;var d=Math.hypot(nb.x-na.x,nb.y-na.y),al=Math.max(0,(150-d)/150)*.3;ctx.beginPath();ctx.moveTo(na.x,na.y);ctx.lineTo(na.x,nb.y);ctx.lineTo(nb.x,nb.y);ctx.strokeStyle='rgba(77,156,248,'+al+')';ctx.lineWidth=.5;ctx.stroke()});
+      nodes.forEach(function(n){n.ph+=n.sp;var g=.5+.5*Math.sin(n.ph);ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,6.28);ctx.fillStyle='rgba(77,156,248,'+(0.18+g*.45)+')';ctx.fill()});
+      if(edges.length){var ei=Math.floor(t*.4*13)%edges.length,e=edges[ei];if(e){var na=nodes[e.a],nb=nodes[e.b];if(na&&nb){var p=(t*.4*13)%1,px=na.x+(nb.x-na.x)*p,py=na.y+(nb.y-na.y)*p,gr=ctx.createRadialGradient(px,py,0,px,py,6);gr.addColorStop(0,'rgba(53,212,240,.75)');gr.addColorStop(1,'rgba(53,212,240,0)');ctx.beginPath();ctx.arc(px,py,5,0,6.28);ctx.fillStyle=gr;ctx.fill()}}}
+      requestAnimationFrame(draw);
+    }
+    window.addEventListener('resize',resize,{passive:true});resize();draw();
   }
-}
-var t=0;
-function draw(){
-  ctx.clearRect(0,0,W,H);t+=.008;
-  edges.forEach(function(e){
-    var na=nodes[e.a],nb=nodes[e.b];if(!na||!nb)return;
-    var d=Math.hypot(nb.x-na.x,nb.y-na.y),al=Math.max(0,(158-d)/158)*.33;
-    ctx.beginPath();ctx.moveTo(na.x,na.y);ctx.lineTo(na.x,nb.y);ctx.lineTo(nb.x,nb.y);
-    ctx.strokeStyle='rgba(77,156,248,'+al+')';ctx.lineWidth=.5;ctx.stroke();
-  });
-  nodes.forEach(function(n){
-    n.ph+=n.sp;var g=.5+.5*Math.sin(n.ph);
-    ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,6.28);
-    ctx.fillStyle='rgba(77,156,248,'+(0.2+g*.48)+')';ctx.fill();
-  });
-  if(edges.length){
-    var ei=Math.floor(t*.4*13)%edges.length,e=edges[ei];
-    if(e){var na=nodes[e.a],nb=nodes[e.b];if(na&&nb){
-      var p=(t*.4*13)%1,px=na.x+(nb.x-na.x)*p,py=na.y+(nb.y-na.y)*p;
-      var gr=ctx.createRadialGradient(px,py,0,px,py,7);
-      gr.addColorStop(0,'rgba(53,212,240,.8)');gr.addColorStop(1,'rgba(53,212,240,0)');
-      ctx.beginPath();ctx.arc(px,py,6,0,6.28);ctx.fillStyle=gr;ctx.fill();
-    }}
+
+  /* Nav */
+  var nav=document.getElementById('mainNav');
+  if(nav){window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>50)},{passive:true});}
+
+  /* Hamburger */
+  var ham=document.getElementById('hamBtn'),mob=document.getElementById('mobNav');
+  if(ham&&mob){
+    ham.addEventListener('click',function(){var op=ham.classList.toggle('open');mob.classList.toggle('open',op);document.body.style.overflow=op?'hidden':''});
+    mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow=''})});
   }
-  requestAnimationFrame(draw);
-}
-window.addEventListener('resize',resize,{passive:true});resize();draw();
 
-/* ── 2. Nav scroll ── */
-var nav=document.getElementById('mainNav');
-window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>50)},{passive:true});
+  /* Counters */
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var ob=new IntersectionObserver(function(en){
+      if(!en[0].isIntersecting)return;
+      var tgt=parseInt(el.dataset.count),suf=el.dataset.suf||'',v=0,step=Math.max(1,Math.ceil(tgt/40));
+      var iv=setInterval(function(){v=Math.min(v+step,tgt);el.textContent=v+suf;if(v>=tgt)clearInterval(iv)},28);
+      ob.disconnect();
+    },{threshold:.6});
+    ob.observe(el);
+  });
 
-/* ── 3. Active section highlight ── */
-var secs=document.querySelectorAll('section[id]');
-var nlinks=document.querySelectorAll('.nav-link[href]');
-var obs=new IntersectionObserver(function(ens){
-  ens.forEach(function(e){if(e.isIntersecting)nlinks.forEach(function(l){l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id)})});
-},{threshold:.35});
-secs.forEach(function(s){obs.observe(s)});
+  /* Back to top */
+  var btt=document.getElementById('btt');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('show',scrollY>400)},{passive:true});}
 
-/* ── 4. Hamburger ── */
-var ham=document.getElementById('hamBtn'),mob=document.getElementById('mobNav');
-ham.addEventListener('click',function(){
-  var op=ham.classList.toggle('open');mob.classList.toggle('open',op);document.body.style.overflow=op?'hidden':'';
-});
-mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow=''})});
-
-/* ── 5. Reveal on scroll ── */
-var rvels=document.querySelectorAll('.rv');
-var rvobs=new IntersectionObserver(function(ens){ens.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rvobs.unobserve(e.target)}})},{threshold:.07});
-rvels.forEach(function(el){rvobs.observe(el)});
-
-/* ── 6. Animated counters ── */
-document.querySelectorAll('[data-count]').forEach(function(el){
-  var cobs=new IntersectionObserver(function(en){
-    if(!en[0].isIntersecting)return;
-    var tgt=parseInt(el.dataset.count),suf=el.dataset.suf||'',v=0,step=Math.max(1,Math.ceil(tgt/42));
-    var iv=setInterval(function(){v=Math.min(v+step,tgt);el.textContent=v+suf;if(v>=tgt)clearInterval(iv)},28);
-    cobs.disconnect();
-  },{threshold:.6});
-  cobs.observe(el);
-});
-
-/* ── 7. Publication filter ── */
-document.querySelectorAll('.pf-btn').forEach(function(btn){
-  btn.addEventListener('click',function(){
-    document.querySelectorAll('.pf-btn').forEach(function(b){b.classList.remove('on')});
-    btn.classList.add('on');
-    var f=btn.dataset.f;
-    document.querySelectorAll('.pub-card').forEach(function(c){
-      c.style.display=(f==='all'||(c.dataset.cat||'').includes(f))?'':'none';
+  /* Smooth scroll */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href').slice(1),tgt=document.getElementById(id);
+      if(!tgt)return;e.preventDefault();
+      window.scrollTo({top:tgt.offsetTop-(parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav'))||64)+8,behavior:'smooth'});
     });
   });
-});
 
-/* ── 8. Name glitch ── */
-var glEl=document.querySelector('.name-2');
-if(glEl){
-  var orig=glEl.textContent,chars='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#!',running=false;
-  function glitch(){
-    if(running)return;running=true;var n=0;
-    var iv=setInterval(function(){
-      glEl.textContent=[...orig].map(function(c){return c===' '?' ':(Math.random()>.55?chars[Math.floor(Math.random()*chars.length)]:c)}).join('');
-      if(++n>9){clearInterval(iv);glEl.textContent=orig;running=false}
-    },50);
-  }
-  glEl.addEventListener('mouseenter',glitch);
-  setTimeout(glitch,2200);setInterval(glitch,9000);
-}
-
-/* ── 9. Smooth scroll 
+  /* Contact form */
+  var frm=document.getElementById('cform'),sbtn=document.getElementById('sendBtn');
+  if(frm)frm.addEventListener('submit',function(e){e.preventDefault();var o=sbtn.innerHTML;sbtn.innerHTML='Sent ✓';sbtn.style.background='#2a9e6a';sbtn.disabled=true;setTimeout(function(){sbtn.innerHTML=o;sbtn.style.background='';sbtn.disabled=false;frm.reset()},4000)});
+})();
+</script>
+</body>
+</html>

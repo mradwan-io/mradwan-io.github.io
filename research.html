@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Mohamed A. Radwan — Assistant Professor, Cairo University. PhD OSU 2024."/>
+<title>Research & Publications | Mohamed A. Radwan</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Georgia,'Times New Roman',serif;background:#07090e;color:#eceef6;line-height:1.76;overflow-x:hidden;font-size:16px}
+::selection{background:rgba(77,156,248,.28)}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:#07090e}::-webkit-scrollbar-thumb{background:#1a2036;border-radius:2px}::-webkit-scrollbar-thumb:hover{background:#4d9cf8}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+:root{
+  --void:#07090e;--deep:#0b0e17;--layer:#0f1320;--surf:#141828;--raise:#1a2036;--lift:#20273f;
+  --ink:#eceef6;--ink2:#8b93b2;--ink3:#4d5472;
+  --blue:#4d9cf8;--blue-a:rgba(77,156,248,.12);--blue-g:rgba(77,156,248,.24);
+  --cyan:#35d4f0;--cyan-a:rgba(53,212,240,.1);
+  --gold:#e0a835;--gold-a:rgba(224,168,53,.1);
+  --green:#35c98a;--vio:#9d7ae8;--red:#e05858;
+  --border:rgba(255,255,255,.065);--border-b:rgba(77,156,248,.22);--border-g:rgba(210,158,50,.25);
+  --fd:Georgia,'Times New Roman',serif;--fm:'Courier New',Courier,monospace;
+  --nav:64px;--max:1160px;--gx:6%;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+
+/* Layout */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gx)}
+.page-body{padding-top:calc(var(--nav) + 2rem)}
+
+/* Canvas */
+#bgc{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.2}
+
+/* Typography */
+h1,h2,h3,h4{font-family:var(--fd);line-height:1.1}
+h2{font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700}
+h3{font-size:1.15rem;font-weight:700}
+.eyebrow{font-family:var(--fm);font-size:.67rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:.6rem;margin-bottom:.8rem}
+.eyebrow::before{content:'';width:20px;height:1px;background:var(--blue);flex-shrink:0}
+.sec-head{margin-bottom:2.5rem}
+.sec-sub{font-size:.96rem;color:var(--ink2);margin-top:.45rem;font-style:italic}
+.page-intro{font-size:1.06rem;line-height:1.88;color:rgba(236,238,246,.78);border-left:2px solid var(--blue);padding-left:1.1rem;font-style:italic;margin-bottom:3rem}
+
+/* Tags */
+.tag{display:inline-flex;align-items:center;font-family:var(--fm);font-size:.62rem;letter-spacing:.05em;padding:.16rem .52rem;border-radius:3px;border:1px solid var(--border);color:var(--ink3)}
+.t-b{border-color:rgba(77,156,248,.3);color:var(--blue);background:var(--blue-a)}
+.t-c{border-color:rgba(53,212,240,.3);color:var(--cyan);background:var(--cyan-a)}
+.t-g{border-color:rgba(224,168,53,.3);color:var(--gold);background:var(--gold-a)}
+.t-n{border-color:rgba(53,201,138,.3);color:var(--green);background:rgba(53,201,138,.08)}
+.t-v{border-color:rgba(157,122,232,.3);color:var(--vio);background:rgba(157,122,232,.08)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:.76rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:.68rem 1.5rem;border-radius:3px;cursor:pointer;border:none;transition:all .22s var(--ease)}
+.btn .x{display:inline-block;transition:transform .2s}
+.btn:hover .x{transform:translateX(3px)}
+.btn-blue{background:var(--blue);color:#fff;box-shadow:0 0 22px var(--blue-g)}
+.btn-blue:hover{background:#3a8de0;transform:translateY(-1px)}
+.btn-out{background:transparent;color:var(--ink);border:1.5px solid var(--border)}
+.btn-out:hover{border-color:var(--blue);color:var(--blue)}
+.btn-sm{padding:.44rem .95rem;font-size:.7rem}
+
+/* Navigation */
+.nav{position:fixed;top:0;left:0;width:100%;height:var(--nav);z-index:1000;background:rgba(7,9,14,.82);backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid var(--border);transition:background .3s,box-shadow .3s}
+.nav.scrolled{background:rgba(7,9,14,.97);box-shadow:0 4px 40px rgba(0,0,0,.5)}
+.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;max-width:var(--max);margin:0 auto;padding:0 var(--gx);gap:1rem}
+.brand{display:flex;align-items:center;gap:.5rem;font-family:var(--fd);font-size:.93rem;font-weight:700;flex-shrink:0}
+.brand-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 8px var(--blue);animation:blink 2.8s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 8px var(--blue)}50%{opacity:.4;box-shadow:0 0 18px var(--cyan)}}
+.brand em{color:var(--blue);font-style:italic}
+.nav-links{display:flex;align-items:center;list-style:none;gap:.1rem}
+.nav-link{padding:.38rem .75rem;border-radius:4px;font-family:var(--fm);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2);transition:color .18s,background .18s;white-space:nowrap}
+.nav-link:hover,.nav-link.active{color:var(--blue);background:var(--blue-a)}
+.nav-end{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
+.nav-cta{font-family:var(--fm);font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.38rem .95rem;border-radius:4px;background:var(--blue);color:#fff;box-shadow:0 0 12px var(--blue-g);transition:background .2s,transform .2s}
+.nav-cta:hover{background:#3a8de0;transform:translateY(-1px)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:7px;background:none;border:none}
+.ham span{display:block;width:22px;height:1.5px;background:var(--ink);border-radius:1px;transition:all .28s var(--ease)}
+.ham.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px)}
+.ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.ham.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px)}
+.mob-nav{position:fixed;inset:0;top:var(--nav);background:rgba(7,9,14,.98);backdrop-filter:blur(20px);z-index:999;padding:2.2rem var(--gx);transform:translateX(100%);transition:transform .38s var(--ease);overflow-y:auto}
+.mob-nav.open{transform:translateX(0)}
+.mob-link{display:block;font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--ink);padding:.75rem 0;border-bottom:1px solid var(--border);transition:color .18s}
+.mob-link:hover,.mob-link.active{color:var(--blue)}
+
+/* Page header (for sub-pages) */
+.page-header{background:var(--void);padding:5rem 0 4rem;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;right:-10%;top:-20%;width:60vw;height:80vh;background:radial-gradient(ellipse at 60% 40%,rgba(77,156,248,.06),transparent 65%);pointer-events:none}
+.page-header h1{font-size:clamp(2.2rem,4vw,3.8rem);font-weight:800;letter-spacing:-.02em;margin-bottom:.5rem}
+.page-header h1 em{color:var(--blue);font-style:italic}
+.page-header .sub{font-size:1rem;color:var(--ink2);font-style:italic;margin-top:.5rem}
+.breadcrumb{display:flex;align-items:center;gap:.5rem;font-family:var(--fm);font-size:.67rem;color:var(--ink3);margin-bottom:1.5rem}
+.breadcrumb a{color:var(--blue);transition:opacity .18s}
+.breadcrumb a:hover{opacity:.75}
+.breadcrumb .sep{opacity:.4}
+
+/* Footer */
+footer{background:var(--void);border-top:1px solid var(--border);padding:2.5rem 0 1.5rem;position:relative;z-index:1}
+.footer-inner{max-width:var(--max);margin:0 auto;padding:0 var(--gx);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-brand{font-family:var(--fd);font-size:.9rem;font-weight:700}
+.footer-brand em{color:var(--blue);font-style:italic}
+.footer-links{display:flex;gap:1.2rem;flex-wrap:wrap}
+.footer-links a{font-family:var(--fm);font-size:.67rem;color:var(--ink3);transition:color .18s}
+.footer-links a:hover{color:var(--blue)}
+.footer-copy{width:100%;font-family:var(--fm);font-size:.64rem;color:var(--ink3);border-top:1px solid var(--border);padding-top:1rem;margin-top:.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+.footer-copy a{color:var(--blue)}
+
+/* Shared card styles */
+.card{background:var(--surf);border:1px solid var(--border);border-radius:9px;transition:border-color .22s,transform .22s}
+.card:hover{border-color:var(--border-b)}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.rv{animation:fadeUp .65s var(--ease) both}
+.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}.d4{animation-delay:.32s}.d5{animation-delay:.4s}
+
+/* Back to top */
+.btt{position:fixed;bottom:1.8rem;right:1.8rem;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;border:none;font-size:1rem;cursor:pointer;z-index:500;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px var(--blue-g);opacity:0;transform:translateY(8px);transition:opacity .3s,transform .3s;pointer-events:none}
+.btt.show{opacity:1;transform:none;pointer-events:all}
+.btt:hover{background:#3a8de0;transform:translateY(-2px)!important}
+
+@media(max-width:768px){
+  .nav-links,.nav-end{display:none}
+  .ham{display:flex}
+  h2{font-size:1.75rem}
+}
+
+.pub-list{display:flex;flex-direction:column;gap:.95rem;margin-bottom:3.5rem}
+.pub-card{background:var(--surf);border:1px solid var(--border);border-radius:9px;padding:1.55rem 1.75rem;display:grid;grid-template-columns:1fr auto;gap:1.3rem;align-items:start;position:relative;overflow:hidden;transition:border-color .25s,transform .22s,box-shadow .22s}
+.pub-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--blue),var(--cyan));transform:scaleY(0);transform-origin:top;transition:transform .3s var(--ease)}
+.pub-card:hover{border-color:var(--border-b);transform:translateX(5px);box-shadow:0 8px 28px rgba(0,0,0,.3)}
+.pub-card:hover::before{transform:scaleY(1)}
+.pub-top{display:flex;align-items:center;gap:.45rem;margin-bottom:.48rem}
+.pub-yr{font-family:var(--fm);font-size:.63rem;background:var(--blue-a);color:var(--blue);padding:.14rem .48rem;border-radius:3px;letter-spacing:.05em}
+.pub-type{font-family:var(--fm);font-size:.6rem;padding:.12rem .4rem;border-radius:2px;letter-spacing:.04em}
+.pub-type.j{background:var(--cyan-a);color:var(--cyan);border:1px solid rgba(53,212,240,.2)}
+.pub-type.c{background:var(--gold-a);color:var(--gold);border:1px solid rgba(224,168,53,.2)}
+.pub-title{font-family:var(--fd);font-size:1.02rem;font-weight:700;line-height:1.3;margin-bottom:.32rem;color:var(--ink)}
+.pub-venue{font-size:.8rem;color:var(--ink2);font-style:italic;margin-bottom:.58rem}
+.pub-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.pub-link{font-family:var(--fm);font-size:.66rem;color:var(--blue);border:1px solid rgba(77,156,248,.22);padding:.22rem .58rem;border-radius:3px;white-space:nowrap;transition:background .15s;align-self:flex-start}
+.pub-link:hover{background:var(--blue-a)}
+.pub-filters{display:flex;gap:.42rem;flex-wrap:wrap;margin-bottom:2rem}
+.pf-btn{font-family:var(--fm);font-size:.66rem;letter-spacing:.06em;padding:.26rem .78rem;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--ink2);cursor:pointer;transition:all .18s}
+.pf-btn.on,.pf-btn:hover{border-color:var(--blue);color:var(--blue);background:var(--blue-a)}
+
+/* Research areas visual */
+.ra-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-bottom:3.5rem}
+.ra-card{background:var(--surf);border:1px solid var(--border);border-radius:10px;padding:1.7rem;position:relative;overflow:hidden;transition:border-color .22s,transform .22s}
+.ra-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.ra-card:hover{border-color:var(--border-b);transform:translateY(-3px)}
+.ra-card:hover::after{transform:scaleX(1)}
+.ra-b::after{background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.ra-g::after{background:linear-gradient(90deg,var(--gold),#f0b84a)}
+.ra-n::after{background:linear-gradient(90deg,var(--green),#5ee8b0)}
+.ra-ico{font-size:1.9rem;margin-bottom:.9rem;display:block}
+.ra-title{font-family:var(--fd);font-size:1.05rem;font-weight:700;margin-bottom:.55rem}
+.ra-desc{font-size:.83rem;color:var(--ink2);line-height:1.7}
+
+/* Writing coming soon */
+.writing-box{background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:2.5rem;max-width:700px;margin:0 auto}
+.wc-topics{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.5rem 0}
+.wct{display:flex;gap:.8rem;align-items:flex-start;background:var(--raise);border:1px solid var(--border);border-radius:7px;padding:.9rem 1rem;transition:border-color .2s}
+.wct:hover{border-color:var(--blue)}
+.wct-n{font-family:var(--fm);font-size:.62rem;color:var(--blue);flex-shrink:0;padding-top:.16rem}
+.wct strong{display:block;font-family:var(--fd);font-size:.85rem;font-weight:600;margin-bottom:.25rem;color:var(--ink)}
+.wct p{font-size:.77rem;color:var(--ink2);line-height:1.6}
+
+@media(max-width:900px){.ra-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.ra-grid{grid-template-columns:1fr}.pub-card{grid-template-columns:1fr}.wc-topics{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<canvas id="bgc" aria-hidden="true"></canvas>
+
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="brand-dot"></span><span>M. A. <em>Radwan</em></span></a>
+    <ul class="nav-links">
+      <li><a class="nav-link " href="index.html">Home</a></li>
+      <li><a class="nav-link active" href="research.html">Research</a></li>
+      <li><a class="nav-link " href="teaching.html">Teaching</a></li>
+      <li><a class="nav-link " href="experience.html">Experience</a></li>
+      <li><a class="nav-link " href="cv.html">CV</a></li>
+      <li><a class="nav-link " href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-end">
+      <a href="contact.html" class="nav-cta">Get in Touch</a>
+    </div>
+    <button class="ham" id="hamBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob-nav" id="mobNav">
+  <a class="mob-link " href="index.html">Home</a>
+  <a class="mob-link active" href="research.html">Research</a>
+  <a class="mob-link " href="teaching.html">Teaching</a>
+  <a class="mob-link " href="experience.html">Experience</a>
+  <a class="mob-link " href="cv.html">CV</a>
+  <a class="mob-link " href="contact.html">Contact</a>
+</div>
+
+<div class="page-body">
+<div class="page-header">
+  <div class="wrap">
+    <div class="breadcrumb rv"><a href="index.html">Home</a><span class="sep">/</span><span>Research</span></div>
+    <h1 class="rv d1">Research &amp; <em>Publications</em></h1>
+    <p class="sub rv d2">High-speed wireline receivers · Power management ICs · 5 peer-reviewed papers</p>
+  </div>
+</div>
+
+<section style="background:var(--layer);padding:5rem 0">
+  <div class="wrap">
+    <p class="page-intro rv">My research focuses on two interconnected themes: (1) high-speed serial link architectures — particularly speculative DFE structures that achieve linear hardware complexity for PAM-N signaling — and (2) energy-efficient power management ICs for low-power IoT and SoC applications.</p>
+
+    <div class="sec-head rv"><div class="eyebrow">Core Areas</div><h2>Research <strong>Focus</strong></h2></div>
+    <div class="ra-grid">
+      <div class="ra-card ra-b rv">
+        <span class="ra-ico">⚡</span>
+        <div class="ra-title">High-Speed Wireline Receivers</div>
+        <p class="ra-desc">SerDes architecture, CTLE/FFE/DFE equalization, CDR circuits for 10–112 Gbps applications. PhD thesis developed novel multi-stage speculative DFE with linear complexity for PAM-N signaling at The Ohio State University.</p>
+        <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:.35rem"><span class="tag t-b">DFE</span><span class="tag t-b">SerDes</span><span class="tag t-c">PAM4</span><span class="tag t-c">CDR</span></div>
+      </div>
+      <div class="ra-card ra-g rv d1">
+        <span class="ra-ico">🔋</span>
+        <div class="ra-title">Power Management IC Design</div>
+        <p class="ra-desc">LDO regulators, DC-DC buck/boost converters, reference circuits, and switched-capacitor topologies. MSc thesis developed a low-ripple hybrid DC-DC converter for NB-IoT. Intel Labs internship: high-PSR capacitor-less LDO.</p>
+        <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:.35rem"><span class="tag t-g">LDO</span><span class="tag t-g">DC-DC</span><span class="tag t-g">NB-IoT</span></div>
+      </div>
+      <div class="ra-card ra-n rv d2">
+        <span class="ra-ico">🔬</span>
+        <div class="ra-title">Mixed-Signal IC Design</div>
+        <p class="ra-desc">Bridging analog and digital design domains: TIA circuits for optical receivers, mixed-mode LDOs, PCB design, and Cadence Virtuoso-based IC design methodology used in both research and 3+ years of industrial IP development.</p>
+        <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:.35rem"><span class="tag t-n">Mixed-Signal</span><span class="tag t-n">TIA</span><span class="tag">Cadence</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--deep);padding:5rem 0">
+  <div class="wrap">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1.2rem;margin-bottom:1.5rem" class="rv">
+      <div class="sec-head" style="margin-bottom:0">
+        <div class="eyebrow">Scholarship</div>
+        <h2>Publications</h2>
+        <p class="sec-sub">5 peer-reviewed papers · 16+ citations</p>
+      </div>
+      <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="btn btn-out btn-sm" style="align-self:flex-end">Full Scholar Record ↗</a>
+    </div>
+    <div class="pub-filters rv">
+      <button class="pf-btn on" data-f="all">All (5)</button>
+      <button class="pf-btn" data-f="io">High-Speed I/O</button>
+      <button class="pf-btn" data-f="opt">Optical Rx</button>
+      <button class="pf-btn" data-f="pow">Power Mgmt</button>
+    </div>
+    <div class="pub-list">
+      <div class="pub-card rv" data-cat="io opt">
+        <div>
+          <div class="pub-top"><span class="pub-yr">2024</span><span class="pub-type j">Journal/Conf</span></div>
+          <div class="pub-title">Multi-Stage Speculative PAM4 Decision Feedback Equalizer for Short-Reach Applications</div>
+          <div class="pub-venue">PhD Research · The Ohio State University</div>
+          <div class="pub-tags"><span class="tag t-b">PAM4</span><span class="tag t-b">DFE</span><span class="tag t-b">Multi-Tap Speculation</span><span class="tag t-c">Wireline Rx</span><span class="tag">Short-Reach</span></div>
+        </div>
+        <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a>
+      </div>
+      <div class="pub-card rv d1" data-cat="io opt">
+        <div>
+          <div class="pub-top"><span class="pub-yr">2023</span><span class="pub-type j">Journal</span></div>
+          <div class="pub-title">Hybrid Timing Error Detector for Baud-Rate Multilevel Clock and Data Recovery</div>
+          <div class="pub-venue">IEEE Transactions on Circuits and Systems (or related IEEE venue)</div>
+          <div class="pub-tags"><span class="tag t-b">CDR</span><span class="tag t-b">Baud-Rate</span><span class="tag t-c">PAM-N</span><span class="tag">Timing Error Detector</span></div>
+        </div>
+        <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a>
+      </div>
+      <div class="pub-card rv d2" data-cat="opt">
+        <div>
+          <div class="pub-top"><span class="pub-yr">2023</span><span class="pub-type c">Conference</span></div>
+          <div class="pub-title">Characterization of Sub-Nyquist TIA with Equalization in Optical Receivers</div>
+          <div class="pub-venue">IEEE ISCAS or related venue</div>
+          <div class="pub-tags"><span class="tag t-c">Optical Rx</span><span class="tag t-c">TIA</span><span class="tag t-b">Equalization</span><span class="tag">Sub-Nyquist</span></div>
+        </div>
+        <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a>
+      </div>
+      <div class="pub-card rv" data-cat="opt io">
+        <div>
+          <div class="pub-top"><span class="pub-yr">2022</span><span class="pub-type c">Conference</span></div>
+          <div class="pub-title">Time-Based Optical Receiver Featuring a Linear Current-to-Time Conversion with Equalization</div>
+          <div class="pub-venue">IEEE Optical Fiber Communications or related venue</div>
+          <div class="pub-tags"><span class="tag t-c">Optical Rx</span><span class="tag t-b">Time-Based</span><span class="tag t-b">Current-to-Time</span><span class="tag">Equalization</span></div>
+        </div>
+        <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a>
+      </div>
+      <div class="pub-card rv d1" data-cat="pow">
+        <div>
+          <div class="pub-top"><span class="pub-yr">2020</span><span class="pub-type j">Journal</span></div>
+          <div class="pub-title">Dual-Loop Regulated Switched Capacitor DC-DC Converter</div>
+          <div class="pub-venue">MSc Research · Cairo University · NB-IoT Power Management</div>
+          <div class="pub-tags"><span class="tag t-g">DC-DC</span><span class="tag t-g">Switched Capacitor</span><span class="tag t-g">NB-IoT</span><span class="tag">Dual-Loop</span></div>
+        </div>
+        <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank" class="pub-link">↗ Scholar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--layer);padding:5rem 0">
+  <div class="wrap">
+    <div class="sec-head rv"><div class="eyebrow">Writing</div><h2>Essays &amp; <strong>Commentary</strong> <em style="font-size:.7em;color:var(--ink3);font-style:italic;font-weight:400">— in preparation</em></h2></div>
+    <div class="writing-box rv">
+      <p style="font-size:.95rem;color:var(--ink2);line-height:1.85;font-style:italic;margin-bottom:.3rem">A series of in-depth articles drawing on doctoral research at OSU, the Intel Labs internship, and years of industrial IC design experience at Vidatronic.</p>
+      <div class="wc-topics">
+        <div class="wct"><span class="wct-n">01</span><div><strong>Why Speculative DFE Breaks the PAM4 Power Wall</strong><p>Linear-complexity multi-tap speculation at 112 Gbps.</p></div></div>
+        <div class="wct"><span class="wct-n">02</span><div><strong>What Intel Labs Taught Me That Academia Didn't</strong><p>On PSR, scalability, and production silicon realities.</p></div></div>
+        <div class="wct"><span class="wct-n">03</span><div><strong>Teaching High-Speed IC Design in Egypt</strong><p>Building a domestic analog/mixed-signal ecosystem.</p></div></div>
+        <div class="wct"><span class="wct-n">04</span><div><strong>The Interconnect Crisis &amp; AI Scaling</strong><p>Why GPU cluster performance hinges on SerDes engineers.</p></div></div>
+      </div>
+      <a href="mailto:mradwan@cu.edu.eg?subject=Writing%20Updates" class="btn btn-out btn-sm">Notify me when published <span class="x">→</span></a>
+    </div>
+  </div>
+</section>
+</div>
+
+<script>
+document.querySelectorAll('.pf-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    document.querySelectorAll('.pf-btn').forEach(function(b){b.classList.remove('on')});
+    btn.classList.add('on');
+    var f=btn.dataset.f;
+    document.querySelectorAll('.pub-card').forEach(function(c){c.style.display=(f==='all'||(c.dataset.cat||'').includes(f))?'':'none'});
+  });
+});
+</script>
+
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Mohamed A. <em>Radwan</em></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="experience.html">Experience</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://scholar.google.com/citations?user=4_8PPb0AAAAJ&hl=en" target="_blank">Scholar ↗</a>
+      <a href="https://www.linkedin.com/in/mohamed-a-radwan-8b4334270" target="_blank">LinkedIn ↗</a>
+    </div>
+    <div class="footer-copy">
+      <span>© 2025 Mohamed A. Radwan · Cairo University. All rights reserved.</span>
+      <span>Hosted free on <a href="https://pages.github.com" target="_blank">GitHub Pages</a></span>
+    </div>
+  </div>
+</footer>
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+(function(){
+  /* Canvas */
+  var cv=document.getElementById('bgc');
+  if(cv){
+    var ctx=cv.getContext('2d'),W,H,nodes=[],edges=[];
+    function resize(){W=cv.width=window.innerWidth;H=cv.height=window.innerHeight;build()}
+    function build(){
+      nodes=[];edges=[];
+      var c=Math.floor(W/92)+1,r=Math.floor(H/92)+1;
+      for(var i=0;i<c;i++)for(var j=0;j<r;j++)
+        if(Math.random()>.54)nodes.push({x:i*92+(Math.random()-.5)*24,y:j*92+(Math.random()-.5)*24,r:Math.random()*1.6+.6,ph:Math.random()*6.28,sp:.01+Math.random()*.014});
+      for(var a=0;a<nodes.length;a++){
+        var nr=[];
+        for(var b=0;b<nodes.length;b++){if(a===b)continue;var d=Math.hypot(nodes[b].x-nodes[a].x,nodes[b].y-nodes[a].y);if(d<150)nr.push({j:b,d:d})}
+        nr.sort(function(x,y){return x.d-y.d}).slice(0,2).forEach(function(n){
+          var k=[a,n.j].sort().join('-');if(!edges.find(function(e){return e.k===k}))edges.push({k:k,a:a,b:n.j});
+        });
+      }
+    }
+    var t=0;
+    function draw(){
+      ctx.clearRect(0,0,W,H);t+=.007;
+      edges.forEach(function(e){var na=nodes[e.a],nb=nodes[e.b];if(!na||!nb)return;var d=Math.hypot(nb.x-na.x,nb.y-na.y),al=Math.max(0,(150-d)/150)*.3;ctx.beginPath();ctx.moveTo(na.x,na.y);ctx.lineTo(na.x,nb.y);ctx.lineTo(nb.x,nb.y);ctx.strokeStyle='rgba(77,156,248,'+al+')';ctx.lineWidth=.5;ctx.stroke()});
+      nodes.forEach(function(n){n.ph+=n.sp;var g=.5+.5*Math.sin(n.ph);ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,6.28);ctx.fillStyle='rgba(77,156,248,'+(0.18+g*.45)+')';ctx.fill()});
+      if(edges.length){var ei=Math.floor(t*.4*13)%edges.length,e=edges[ei];if(e){var na=nodes[e.a],nb=nodes[e.b];if(na&&nb){var p=(t*.4*13)%1,px=na.x+(nb.x-na.x)*p,py=na.y+(nb.y-na.y)*p,gr=ctx.createRadialGradient(px,py,0,px,py,6);gr.addColorStop(0,'rgba(53,212,240,.75)');gr.addColorStop(1,'rgba(53,212,240,0)');ctx.beginPath();ctx.arc(px,py,5,0,6.28);ctx.fillStyle=gr;ctx.fill()}}}
+      requestAnimationFrame(draw);
+    }
+    window.addEventListener('resize',resize,{passive:true});resize();draw();
+  }
+
+  /* Nav */
+  var nav=document.getElementById('mainNav');
+  if(nav){window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',scrollY>50)},{passive:true});}
+
+  /* Hamburger */
+  var ham=document.getElementById('hamBtn'),mob=document.getElementById('mobNav');
+  if(ham&&mob){
+    ham.addEventListener('click',function(){var op=ham.classList.toggle('open');mob.classList.toggle('open',op);document.body.style.overflow=op?'hidden':''});
+    mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){ham.classList.remove('open');mob.classList.remove('open');document.body.style.overflow=''})});
+  }
+
+  /* Counters */
+  document.querySelectorAll('[data-count]').forEach(function(el){
+    var ob=new IntersectionObserver(function(en){
+      if(!en[0].isIntersecting)return;
+      var tgt=parseInt(el.dataset.count),suf=el.dataset.suf||'',v=0,step=Math.max(1,Math.ceil(tgt/40));
+      var iv=setInterval(function(){v=Math.min(v+step,tgt);el.textContent=v+suf;if(v>=tgt)clearInterval(iv)},28);
+      ob.disconnect();
+    },{threshold:.6});
+    ob.observe(el);
+  });
+
+  /* Back to top */
+  var btt=document.getElementById('btt');
+  if(btt){window.addEventListener('scroll',function(){btt.classList.toggle('show',scrollY>400)},{passive:true});}
+
+  /* Smooth scroll */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href').slice(1),tgt=document.getElementById(id);
+      if(!tgt)return;e.preventDefault();
+      window.scrollTo({top:tgt.offsetTop-(parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav'))||64)+8,behavior:'smooth'});
+    });
+  });
+
+  /* Contact form */
+  var frm=document.getElementById('cform'),sbtn=document.getElementById('sendBtn');
+  if(frm)frm.addEventListener('submit',function(e){e.preventDefault();var o=sbtn.innerHTML;sbtn.innerHTML='Sent ✓';sbtn.style.background='#2a9e6a';sbtn.disabled=true;setTimeout(function(){sbtn.innerHTML=o;sbtn.style.background='';sbtn.disabled=false;frm.reset()},4000)});
+})();
+</script>
+</body>
+</html>
